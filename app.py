@@ -99,12 +99,15 @@ awareness and shaping public opinion. Ethics and responsibility of the designer
 towards society and the environment.
 """
 
+# These match demo/ID2103_question_paper.docx and cover all six Bloom levels.
 SAMPLE_QUESTIONS = [
-    ["1(a)", "Explain the three primary components of the Design Quality Triangle.", 3],
-    ["1(b)", "Discuss how they interact with each other in the context of product design with reference to a smart television.", 5],
+    ["1(a)", "List the elements and principles of design.", 2],
+    ["1(b)", "Explain the three primary components of the Design Quality Triangle.", 3],
+    ["1(c)", "Discuss how they interact with each other in the context of product design with reference to a smart television.", 5],
     ["2(a)", "Explore how personal identity, emotions, and individual experiences are communicated through different forms of art.", 4],
     ["2(b)", "Why are some artworks revered across generations regardless of changing artistic trends?", 4],
     ["3(a)", "Critically analyze how art acts as a transformative force in society by challenging norms and promoting social awareness.", 4],
+    ["3(b)", "Propose a public art installation for your campus that addresses a social issue, and justify your design choices.", 6],
 ]
 
 

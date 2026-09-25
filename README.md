@@ -197,6 +197,12 @@ CO_mapping__RP/
 ├── requirements.txt
 ├── .env.example
 ├── .gitignore                        keeps .env and secrets.toml out of git
+├── demo/                             sample files for the review demo
+│   ├── DEMO_DATA.md                  course details, COs and reference labels
+│   ├── ID2103_syllabus.pdf           syllabus as PDF
+│   ├── ID2103_question_paper.docx    question paper as DOCX
+│   ├── CS2201_syllabus.docx          a second course, syllabus as DOCX
+│   └── CS2201_question_paper.pdf     a second course, paper as PDF
 └── README.md
 ```
 
@@ -247,7 +253,10 @@ The app opens at <http://localhost:8501>.
 
 ## Example input
 
-Press **"Load sample course data"** in the sidebar to fill in the test course.
+Press **"Load sample course data"** in the sidebar to fill in the test course,
+or use the ready made files in the `demo/` folder to show the PDF and DOCX
+upload as well. `demo/DEMO_DATA.md` lists the Course Outcomes to copy and the
+reference labels to check the output against.
 
 Course: `ID2103 - Art & Aesthetics in Design`
 
@@ -306,15 +315,19 @@ code.
 
 ## Results actually observed
 
-A live run on the ID2103 sample course (5 questions, `gemini-3.5-flash-lite`,
-`all-mpnet-base-v2`) gave:
+A live run on the ID2103 demo paper (7 questions covering all six Bloom levels,
+`gemini-3.5-flash-lite`, `all-mpnet-base-v2`) gave:
 
 | | Result |
 |---|---|
-| Course Outcome agreement with the reference labels | **5 of 5** |
+| Course Outcome agreement with the reference labels | **7 of 7** |
 | Bloom level agreement | partial - see below |
-| LLM calls used | 7 (not 15: three questions were decided in a single call) |
-| Wall clock | about 17 seconds |
+| LLM calls used | 10 (not 21: the clear questions were decided in a single call) |
+| Wall clock | about 55 seconds |
+
+The two extreme levels were handled correctly: the plain recall question was
+classified `L1`, and the "propose an installation and justify it" question was
+classified `L5, L6`.
 
 The Bloom levels were close but not exact. The system tended to add an extra
 `L2` alongside the correct higher level, for example predicting `L2, L5` where
