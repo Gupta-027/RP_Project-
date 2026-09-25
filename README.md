@@ -173,7 +173,7 @@ script; no change to `app.py` is needed.
 | Component | Choice |
 |-----------|--------|
 | UI | Streamlit (one page) |
-| Embeddings | `sentence-transformers`, model `all-mpnet-base-v2` (768 dimensions) |
+| Embeddings | `sentence-transformers`, `all-MiniLM-L6-v2` by default (384 dims), `all-mpnet-base-v2` optional (768 dims) |
 | Similarity | `scikit-learn` cosine similarity |
 | LLM | Gemini (`gemini-3.5-flash-lite`) through its REST API using `requests` |
 | PDF text | PyMuPDF |
@@ -189,12 +189,14 @@ without adding accuracy at this scale.
 
 ```
 CO_mapping__RP/
-├── app.py                    Streamlit single page application
-├── rag_pipeline.py           embeddings, retrieval, RAG prompt, LLM call, validation
-├── document_utils.py         PDF / DOCX / TXT text extraction
-├── .streamlit/config.toml    forces the plain white theme
+├── app.py                            Streamlit single page application
+├── rag_pipeline.py                   embeddings, retrieval, RAG prompt, LLM call, validation
+├── document_utils.py                 PDF / DOCX / TXT text extraction
+├── .streamlit/config.toml            forces the plain white theme
+├── .streamlit/secrets.toml.example   settings template for Streamlit Cloud
 ├── requirements.txt
 ├── .env.example
+├── .gitignore                        keeps .env and secrets.toml out of git
 └── README.md
 ```
 
@@ -325,6 +327,78 @@ five questions (4 of 5 COs, one question failing to classify at all) and took
 76 seconds, which is why the lite model is the default. This is a single
 five-question run and should be read as an illustration, not as a measured
 accuracy figure.
+
+## Deploying to Streamlit Community Cloud
+
+The repository is already prepared for it. Three things matter on the free tier.
+
+**Memory.** The free tier gives roughly 1 GB of RAM. Measured usage after the
+model loads:
+
+| Embedding model | RAM | Fits the free tier |
+|---|---|---|
+| `all-MiniLM-L6-v2` | about 500 MB | yes - this is the default |
+| `all-mpnet-base-v2` | about 800 MB | risky, likely to be killed |
+
+`all-MiniLM-L6-v2` is the default for this reason. On the sample course it still
+agreed with all five reference COs, so the smaller model is not a real loss for
+the CO half of the task.
+
+**Torch size.** On Linux, plain `pip install torch` pulls the CUDA build, which
+is far too large for the build step. `requirements.txt` therefore starts with
+
+```
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+```
+
+which installs the CPU-only build instead. Do not delete those two lines.
+
+**The API key.** It must never be committed. `.gitignore` excludes `.env` and
+`.streamlit/secrets.toml`; on the cloud the key is supplied through the app's
+Secrets box instead.
+
+### Steps
+
+1. Create an empty repository on GitHub (for example `co-bloom-rp`). Do not add
+   a README, since this project already has one.
+
+2. Push this project to it:
+
+   ```bash
+   git remote add origin https://github.com/<your-username>/co-bloom-rp.git
+   git push -u origin main
+   ```
+
+3. Go to <https://share.streamlit.io>, sign in with GitHub and choose
+   **Create app -> Deploy a public app from GitHub**. Select the repository,
+   branch `main`, and main file path `app.py`.
+
+4. Open **Advanced settings -> Secrets** before deploying and paste:
+
+   ```toml
+   GEMINI_API_KEY = "your_api_key_here"
+   GEMINI_MODEL = "gemini-3.5-flash-lite"
+   EMBEDDING_MODEL = "all-MiniLM-L6-v2"
+   ```
+
+   The same keys are listed in `.streamlit/secrets.toml.example`.
+
+5. Deploy. The first build takes several minutes because torch and the embedding
+   model have to be downloaded. Later restarts are much faster.
+
+The app reads its settings through `get_setting()` in `app.py`, which checks
+Streamlit Secrets first and falls back to the `.env` file, so the same code runs
+unchanged on a laptop and on the cloud.
+
+### If the deployed app fails
+
+| Symptom | Cause and fix |
+|---|---|
+| The build runs out of space or takes very long | the CPU-only torch lines were removed from `requirements.txt` |
+| The app restarts as soon as a question is analysed | out of memory - make sure `EMBEDDING_MODEL` is `all-MiniLM-L6-v2` |
+| "the free tier daily quota is used up" | change `GEMINI_MODEL` in Secrets to another model id; each model has its own daily allowance |
+| The sidebar asks for an API key | the Secrets box is empty or misspelled |
 
 ## Limitations
 
