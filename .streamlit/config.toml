@@ -1,0 +1,15 @@
+# Force a plain white light theme, whatever the browser or OS is set to.
+[theme]
+base = "light"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#1A1A1A"
+primaryColor = "#2A6BD4"
+borderColor = "#DDDDDD"
+showSidebarBorder = true
+
+[server]
+headless = true
+
+[browser]
+gatherUsageStats = false

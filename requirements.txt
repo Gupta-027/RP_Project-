@@ -1,0 +1,14 @@
+# Install the CPU-only build of torch. Without this line pip pulls the CUDA
+# build on Linux, which is far too large for Streamlit Community Cloud.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+
+streamlit>=1.50
+sentence-transformers
+scikit-learn
+numpy
+pandas
+PyMuPDF
+python-docx
+requests
+python-dotenv
