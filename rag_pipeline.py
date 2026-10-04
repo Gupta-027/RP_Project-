@@ -19,7 +19,6 @@ The professor enters each question once. The LLM is normally asked once as well.
 It is asked a second and a third time only when the first answer looks uncertain,
 and then the majority answer is used. See classify_with_agreement().
 """
-
 import json
 import os
 import re
@@ -218,9 +217,11 @@ def call_llm(prompt, api_key=None, temperature=0.2):
     Send the prompt to Gemini and return the raw text answer.
     Raises LLMUnavailable with a readable message when the call cannot be made.
     """
-    api_key = api_key or os.getenv("GEMINI_API_KEY", "")
+    api_key = (api_key or os.getenv("GEMINI_API_KEY", "").strip()
+               or os.getenv("GOOGLE_API_KEY", "").strip())
     if not api_key:
-        raise LLMUnavailable("GEMINI_API_KEY is not set. Add it to the .env file.")
+        raise LLMUnavailable("GEMINI_API_KEY is not set. Add it to Streamlit Cloud "
+                             "Settings > Secrets, your local .env, or the sidebar.")
 
     url = GEMINI_URL.format(model=GEMINI_MODEL)
     payload = {

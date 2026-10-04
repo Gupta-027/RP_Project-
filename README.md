@@ -413,6 +413,19 @@ unchanged on a laptop and on the cloud.
 | "the free tier daily quota is used up" | change `GEMINI_MODEL` in Secrets to another model id; each model has its own daily allowance |
 | The sidebar asks for an API key | the Secrets box is empty or misspelled |
 
+The app accepts `GEMINI_API_KEY` or `GOOGLE_API_KEY`. Locally, the secrets
+filename must be `.streamlit/secrets.toml` (plural); `secret.toml` and
+`config.yaml` are not loaded as Streamlit secrets. Your local `.env` and
+secrets file are not uploaded by a Git push. For an existing deployment, open
+the app's **Settings -> Secrets**, paste the contents of your local
+`.streamlit/secrets.toml`, and save. Keep real keys out of GitHub.
+
+To check API configuration without calling Gemini or loading embeddings:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
 ## Limitations
 
 1. CO statements are written differently in every course, so the quality of the

@@ -7,7 +7,6 @@ The professor enters the course, the Course Outcomes, the syllabus and the
 questions. The app suggests a CO and Bloom level for every question, and the
 professor makes the final decision.
 """
-
 import os
 
 import pandas as pd
@@ -28,11 +27,12 @@ def get_setting(name, default=""):
     and from the .env file when it runs on a laptop.
     """
     try:
-        if name in st.secrets:
-            return str(st.secrets[name])
-    except Exception:
+        value = st.secrets.get(name)
+        if value is not None and str(value).strip():
+            return str(value).strip()
+    except FileNotFoundError:
         pass  # no secrets file at all, which is normal when running locally
-    return os.getenv(name, default)
+    return os.getenv(name, "").strip() or default
 
 
 # Let the deployed app override the two model names without editing the code.
@@ -163,7 +163,7 @@ def get_embedding_model():
 with st.sidebar:
     st.header("Settings")
 
-    api_key = get_setting("GEMINI_API_KEY")
+    api_key = get_setting("GEMINI_API_KEY") or get_setting("GOOGLE_API_KEY")
     if api_key:
         st.success("Gemini API key loaded")
     else:
@@ -380,7 +380,8 @@ if st.button("Analyze Questions", type="primary"):
     elif not questions:
         st.error("Please enter at least one question.")
     elif not api_key:
-        st.error("A Gemini API key is required. Add it to .env or in the sidebar.")
+        st.error("A Gemini API key is required. Add GEMINI_API_KEY to Streamlit Cloud "
+                 "Settings > Secrets, to your local .env, or in the sidebar.")
     else:
         if not st.session_state.syllabus_text.strip():
             st.warning("No syllabus entered, so retrieval will run without syllabus context.")

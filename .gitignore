@@ -1,4 +1,7 @@
 .env
 .streamlit/secrets.toml
+.streamlit/secret.toml
+config.yaml
 __pycache__/
 *.pyc
+.aider*
