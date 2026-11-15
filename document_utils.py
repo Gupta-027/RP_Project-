@@ -1,8 +1,8 @@
 """
 Text extraction helpers for syllabus / question-paper files.
 
-Only two formats are supported (PDF and DOCX) because that is what our
-university uses. Plain text can always be pasted directly in the app.
+PDF, DOCX and UTF-8 TXT uploads are supported. Scanned-document OCR is not
+implemented; the workspace warns when extraction returns no usable text.
 """
 
 import io

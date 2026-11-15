@@ -1,0 +1,2078 @@
+{
+  "schema_version": 1,
+  "id": "project_12928fade529",
+  "course": {
+    "code": "ID2103",
+    "name": "Art & Aesthetics in Design",
+    "department": "Industrial Design (demo)",
+    "programme": "B.Des. (demo)",
+    "semester": "4",
+    "academic_year": "2026–27 (sample)"
+  },
+  "syllabus": "Unit 1: Foundations of Art, Aesthetics and Design Quality\nIntroduction to art and aesthetics. Definition of beauty, form and proportion.\nElements and principles of design: line, shape, colour, texture, balance, rhythm,\ncontrast and unity. The Design Quality Triangle and its three primary components,\nnamely aesthetics, function and usability. How the three components are balanced\nagainst each other in a product, and how a change in one component affects the\nothers. Examples from everyday consumer products such as furniture, mobile phones\nand televisions.\n\nUnit 2: Art, Identity and Human Experience\nArt as a medium of personal expression. How personal identity, memory, emotion and\nlived experience are communicated through painting, sculpture, photography, music\nand performance. Interpretation of an artwork by the viewer. Subjectivity of taste.\nWhy certain artworks remain valued across generations while artistic trends change.\nCriteria used to judge artistic merit, originality and craftsmanship.\n\nUnit 3: Art, Design and Society\nArt as a mirror and as a transformative force in society. Art movements and social\nchange. Design and culture, tradition and modernity. Public art, craft traditions\nand everyday objects. The role of art in questioning social norms, creating social\nawareness and shaping public opinion. Ethics and responsibility of the designer\ntowards society and the environment.\n",
+  "modules": [
+    {
+      "id": "M1",
+      "title": "Unit 1: Foundations of Art, Aesthetics and Design Quality",
+      "text": "Unit 1: Foundations of Art, Aesthetics and Design Quality\nIntroduction to art and aesthetics. Definition of beauty, form and proportion.\nElements and principles of design: line, shape, colour, texture, balance, rhythm,\ncontrast and unity. The Design Quality Triangle and its three primary components,\nnamely aesthetics, function and usability. How the three components are balanced\nagainst each other in a product, and how a change in one component affects the\nothers. Examples from everyday consumer products such as furniture, mobile phones\nand televisions."
+    },
+    {
+      "id": "M2",
+      "title": "Unit 2: Art, Identity and Human Experience",
+      "text": "Unit 2: Art, Identity and Human Experience\nArt as a medium of personal expression. How personal identity, memory, emotion and\nlived experience are communicated through painting, sculpture, photography, music\nand performance. Interpretation of an artwork by the viewer. Subjectivity of taste.\nWhy certain artworks remain valued across generations while artistic trends change.\nCriteria used to judge artistic merit, originality and craftsmanship."
+    },
+    {
+      "id": "M3",
+      "title": "Unit 3: Art, Design and Society",
+      "text": "Unit 3: Art, Design and Society\nArt as a mirror and as a transformative force in society. Art movements and social\nchange. Design and culture, tradition and modernity. Public art, craft traditions\nand everyday objects. The role of art in questioning social norms, creating social\nawareness and shaping public opinion. Ethics and responsibility of the designer\ntowards society and the environment."
+    }
+  ],
+  "co_drafts": [
+    {
+      "id": "CO4",
+      "statement": "Evaluate ethical and environmental responsibilities in public design interventions.",
+      "module_ids": [
+        "M3"
+      ],
+      "bloom_levels": [
+        "L5"
+      ],
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Optional extension to demonstrate individual review.",
+      "evidence": [
+        {
+          "module_id": "M3",
+          "quote": "Art as a mirror and as a transformative force in society."
+        }
+      ],
+      "status": "draft",
+      "origin": "prepared_demo",
+      "source_fingerprint": "28d7b2bd85b8ad403350ca9de5beb927767579e87c2b275ec2e470d1b5e948fb"
+    }
+  ],
+  "approved_cos": [
+    {
+      "id": "CO1",
+      "statement": "Explain fundamental concepts and principles related to art, aesthetics and design quality.",
+      "module_ids": [
+        "M1"
+      ],
+      "bloom_levels": [
+        "L2"
+      ],
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Grounded in the corresponding syllabus unit.",
+      "evidence": [
+        {
+          "module_id": "M1",
+          "quote": "Introduction to art and aesthetics."
+        }
+      ],
+      "status": "approved",
+      "origin": "prepared_demo",
+      "notes": "Approval staged for presentation; not an institutional decision.",
+      "source_fingerprint": "69be955125beff8e45c1327b79a93095aa13e5990fd6f67fe547284fec1837b9"
+    },
+    {
+      "id": "CO2",
+      "statement": "Interpret and evaluate art in relation to identity, emotion and individual human experience.",
+      "module_ids": [
+        "M2"
+      ],
+      "bloom_levels": [
+        "L4",
+        "L5"
+      ],
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Grounded in the corresponding syllabus unit.",
+      "evidence": [
+        {
+          "module_id": "M2",
+          "quote": "Art as a medium of personal expression."
+        }
+      ],
+      "status": "approved",
+      "origin": "prepared_demo",
+      "notes": "Approval staged for presentation; not an institutional decision.",
+      "source_fingerprint": "75c991833ca6417823d256806c534011835cba2282a79cf1922992b0e1e4e862"
+    },
+    {
+      "id": "CO3",
+      "statement": "Analyze the relationship between art, design, society and everyday life.",
+      "module_ids": [
+        "M3"
+      ],
+      "bloom_levels": [
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Grounded in the corresponding syllabus unit.",
+      "evidence": [
+        {
+          "module_id": "M3",
+          "quote": "Art as a mirror and as a transformative force in society."
+        }
+      ],
+      "status": "approved",
+      "origin": "prepared_demo",
+      "notes": "Approval staged for presentation; not an institutional decision.",
+      "source_fingerprint": "28d7b2bd85b8ad403350ca9de5beb927767579e87c2b275ec2e470d1b5e948fb"
+    }
+  ],
+  "programme_outcomes": [
+    {
+      "id": "PO1",
+      "kind": "PO",
+      "statement": "[Illustrative demo] Apply art and design principles to analyse familiar products.",
+      "approved": true
+    },
+    {
+      "id": "PO2",
+      "kind": "PO",
+      "statement": "[Illustrative demo] Analyse design problems in relation to user needs and context.",
+      "approved": true
+    },
+    {
+      "id": "PO3",
+      "kind": "PO",
+      "statement": "[Illustrative demo] Develop and justify design concepts for a stated context.",
+      "approved": true
+    },
+    {
+      "id": "PO4",
+      "kind": "PO",
+      "statement": "[Illustrative demo] Investigate alternatives using visual analysis and relevant examples.",
+      "approved": true
+    },
+    {
+      "id": "PO5",
+      "kind": "PO",
+      "statement": "[Illustrative demo] Select appropriate visual communication tools and methods.",
+      "approved": true
+    },
+    {
+      "id": "PO6",
+      "kind": "PO",
+      "statement": "[Illustrative demo] Evaluate design choices in relation to society and cultural context.",
+      "approved": true
+    },
+    {
+      "id": "PO7",
+      "kind": "PO",
+      "statement": "[Illustrative demo] Consider environmental responsibility in design decisions.",
+      "approved": true
+    },
+    {
+      "id": "PO8",
+      "kind": "PO",
+      "statement": "[Illustrative demo] Justify ethical decisions in art and design practice.",
+      "approved": true
+    },
+    {
+      "id": "PO9",
+      "kind": "PO",
+      "statement": "[Illustrative demo] Collaborate effectively when developing and reviewing design work.",
+      "approved": true
+    },
+    {
+      "id": "PO10",
+      "kind": "PO",
+      "statement": "[Illustrative demo] Communicate design ideas clearly using appropriate representations.",
+      "approved": true
+    },
+    {
+      "id": "PO11",
+      "kind": "PO",
+      "statement": "[Illustrative demo] Reflect on feedback and extend personal learning in design.",
+      "approved": true
+    },
+    {
+      "id": "PSO1",
+      "kind": "PSO",
+      "statement": "[Illustrative demo] Interpret art and aesthetics to improve human-centred design concepts.",
+      "approved": true
+    },
+    {
+      "id": "PSO2",
+      "kind": "PSO",
+      "statement": "[Illustrative demo] Propose culturally sensitive and environmentally responsible public design interventions.",
+      "approved": true
+    }
+  ],
+  "matrix": [
+    {
+      "co_id": "CO1",
+      "outcome_id": "PO1",
+      "suggested_score": 3,
+      "final_score": 3,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Explaining design principles directly supports applying foundational design knowledge.",
+      "evidence": [
+        {
+          "module_id": "M1",
+          "quote": "Introduction to art and aesthetics."
+        }
+      ],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "dd13689cc40576a97cc67705687cc8ef1e709a17b37119c9d579ba50d1a9d99e",
+      "original_suggestion": {
+        "suggested_score": 3,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. Explaining design principles directly supports applying foundational design knowledge.",
+        "evidence": [
+          {
+            "module_id": "M1",
+            "quote": "Introduction to art and aesthetics."
+          }
+        ],
+        "source_fingerprint": "dd13689cc40576a97cc67705687cc8ef1e709a17b37119c9d579ba50d1a9d99e"
+      }
+    },
+    {
+      "co_id": "CO1",
+      "outcome_id": "PO2",
+      "suggested_score": 2,
+      "final_score": 2,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. The Design Quality Triangle provides a way to analyse product trade-offs.",
+      "evidence": [
+        {
+          "module_id": "M1",
+          "quote": "Introduction to art and aesthetics."
+        }
+      ],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "9cc8c8e76bdf1dc8e38bcee5531f0b84dd966accb23c6103d183a4172cf50ccd",
+      "original_suggestion": {
+        "suggested_score": 2,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. The Design Quality Triangle provides a way to analyse product trade-offs.",
+        "evidence": [
+          {
+            "module_id": "M1",
+            "quote": "Introduction to art and aesthetics."
+          }
+        ],
+        "source_fingerprint": "9cc8c8e76bdf1dc8e38bcee5531f0b84dd966accb23c6103d183a4172cf50ccd"
+      }
+    },
+    {
+      "co_id": "CO1",
+      "outcome_id": "PO3",
+      "suggested_score": 2,
+      "final_score": 1,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Foundational explanation offers limited support for later concept development.",
+      "evidence": [
+        {
+          "module_id": "M1",
+          "quote": "Introduction to art and aesthetics."
+        }
+      ],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Staged professor override: limited direct support for concept development.",
+      "professor_edited": true,
+      "source_fingerprint": "136f6b3842d49df5ef639bf8e9d653948a6916ab7252710503b000a589ac345d",
+      "original_suggestion": {
+        "suggested_score": 2,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. Foundational explanation offers limited support for later concept development.",
+        "evidence": [
+          {
+            "module_id": "M1",
+            "quote": "Introduction to art and aesthetics."
+          }
+        ],
+        "source_fingerprint": "136f6b3842d49df5ef639bf8e9d653948a6916ab7252710503b000a589ac345d"
+      }
+    },
+    {
+      "co_id": "CO1",
+      "outcome_id": "PO4",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "aa10093719003b40bee1581b86055a16aaa8da92983131a2ab6c1d92058ea248",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "aa10093719003b40bee1581b86055a16aaa8da92983131a2ab6c1d92058ea248"
+      }
+    },
+    {
+      "co_id": "CO1",
+      "outcome_id": "PO5",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "863315a9a606150fb365ac57c5859fe6edd1e49591c1b1f60e8520ffba2457a0",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "863315a9a606150fb365ac57c5859fe6edd1e49591c1b1f60e8520ffba2457a0"
+      }
+    },
+    {
+      "co_id": "CO1",
+      "outcome_id": "PO6",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "1bed3255fb1c7650201ddb1e40cfea6b9f249489d108aa02ad7a0976f675b67a",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "1bed3255fb1c7650201ddb1e40cfea6b9f249489d108aa02ad7a0976f675b67a"
+      }
+    },
+    {
+      "co_id": "CO1",
+      "outcome_id": "PO7",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "0f5d71ae26c61b603d34c7f07c80ac5c5226cd49d8b59b0a447c68f42b1d43e4",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "0f5d71ae26c61b603d34c7f07c80ac5c5226cd49d8b59b0a447c68f42b1d43e4"
+      }
+    },
+    {
+      "co_id": "CO1",
+      "outcome_id": "PO8",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "dd3de77644d0ae1766fe4d705d8dd1972b51b7d80dc3103e5869c1587fef96fa",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "dd3de77644d0ae1766fe4d705d8dd1972b51b7d80dc3103e5869c1587fef96fa"
+      }
+    },
+    {
+      "co_id": "CO1",
+      "outcome_id": "PO9",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "c60255333fd03683f7927448d52c80f2274a571ec9f58d4cdcec8393917b85c4",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "c60255333fd03683f7927448d52c80f2274a571ec9f58d4cdcec8393917b85c4"
+      }
+    },
+    {
+      "co_id": "CO1",
+      "outcome_id": "PO10",
+      "suggested_score": 1,
+      "final_score": 1,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Explaining design quality requires clear communication of the concepts.",
+      "evidence": [
+        {
+          "module_id": "M1",
+          "quote": "Introduction to art and aesthetics."
+        }
+      ],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "d907bbd70f1d615d29d99c495b24a603fd481e606e7e1d2115cdb1711f048914",
+      "original_suggestion": {
+        "suggested_score": 1,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. Explaining design quality requires clear communication of the concepts.",
+        "evidence": [
+          {
+            "module_id": "M1",
+            "quote": "Introduction to art and aesthetics."
+          }
+        ],
+        "source_fingerprint": "d907bbd70f1d615d29d99c495b24a603fd481e606e7e1d2115cdb1711f048914"
+      }
+    },
+    {
+      "co_id": "CO1",
+      "outcome_id": "PO11",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "08bfebc8dd1bdc21c1e4d650c30c28e75d5a5395aa51412e4fed0fc62723b440",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "08bfebc8dd1bdc21c1e4d650c30c28e75d5a5395aa51412e4fed0fc62723b440"
+      }
+    },
+    {
+      "co_id": "CO1",
+      "outcome_id": "PSO1",
+      "suggested_score": 3,
+      "final_score": 3,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Art and aesthetics are explicit content of this course outcome.",
+      "evidence": [
+        {
+          "module_id": "M1",
+          "quote": "Introduction to art and aesthetics."
+        }
+      ],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "c9c1f164a6a05d2661ad4a1db162e10240f99d9cef8293bcff5989f9b52bdea9",
+      "original_suggestion": {
+        "suggested_score": 3,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. Art and aesthetics are explicit content of this course outcome.",
+        "evidence": [
+          {
+            "module_id": "M1",
+            "quote": "Introduction to art and aesthetics."
+          }
+        ],
+        "source_fingerprint": "c9c1f164a6a05d2661ad4a1db162e10240f99d9cef8293bcff5989f9b52bdea9"
+      }
+    },
+    {
+      "co_id": "CO1",
+      "outcome_id": "PSO2",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "6839e487de2ae04afbb5dc0e987921c65ce9ff7327a04237a500ee26d44b86c2",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "6839e487de2ae04afbb5dc0e987921c65ce9ff7327a04237a500ee26d44b86c2"
+      }
+    },
+    {
+      "co_id": "CO2",
+      "outcome_id": "PO1",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "c8e90a26e4081201ce25537c39ae7678868065319a980088817bec1d4760506d",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "c8e90a26e4081201ce25537c39ae7678868065319a980088817bec1d4760506d"
+      }
+    },
+    {
+      "co_id": "CO2",
+      "outcome_id": "PO2",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "9988422f650a52ea27aad9404b5a873467bf7603a3b4e2de7cf81362049a087e",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "9988422f650a52ea27aad9404b5a873467bf7603a3b4e2de7cf81362049a087e"
+      }
+    },
+    {
+      "co_id": "CO2",
+      "outcome_id": "PO3",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "463603bcbcd8a98dc584a48d8656c85a7c4ef019a15ca6d18db547b4749fa682",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "463603bcbcd8a98dc584a48d8656c85a7c4ef019a15ca6d18db547b4749fa682"
+      }
+    },
+    {
+      "co_id": "CO2",
+      "outcome_id": "PO4",
+      "suggested_score": 3,
+      "final_score": 3,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Interpreting artworks involves visual analysis and comparison of interpretations.",
+      "evidence": [
+        {
+          "module_id": "M2",
+          "quote": "Art as a medium of personal expression."
+        }
+      ],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "8d6ec99019438e37e5873df890c94ba4a182cb5c0440c36cebed2b900ec7b6c8",
+      "original_suggestion": {
+        "suggested_score": 3,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. Interpreting artworks involves visual analysis and comparison of interpretations.",
+        "evidence": [
+          {
+            "module_id": "M2",
+            "quote": "Art as a medium of personal expression."
+          }
+        ],
+        "source_fingerprint": "8d6ec99019438e37e5873df890c94ba4a182cb5c0440c36cebed2b900ec7b6c8"
+      }
+    },
+    {
+      "co_id": "CO2",
+      "outcome_id": "PO5",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "258637a492775eb362252bdfafa3eeecdfaef467a823f45d8efe41113699e4aa",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "258637a492775eb362252bdfafa3eeecdfaef467a823f45d8efe41113699e4aa"
+      }
+    },
+    {
+      "co_id": "CO2",
+      "outcome_id": "PO6",
+      "suggested_score": 2,
+      "final_score": 2,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Identity and lived experience connect interpretation to cultural context.",
+      "evidence": [
+        {
+          "module_id": "M2",
+          "quote": "Art as a medium of personal expression."
+        }
+      ],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "54eaee962112125b0ca0262c6a8fc28a427aa2900098e2cb5739028306c880ff",
+      "original_suggestion": {
+        "suggested_score": 2,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. Identity and lived experience connect interpretation to cultural context.",
+        "evidence": [
+          {
+            "module_id": "M2",
+            "quote": "Art as a medium of personal expression."
+          }
+        ],
+        "source_fingerprint": "54eaee962112125b0ca0262c6a8fc28a427aa2900098e2cb5739028306c880ff"
+      }
+    },
+    {
+      "co_id": "CO2",
+      "outcome_id": "PO7",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "9f114d56e024597e1f38c8aed380298fbb8008f96f1f81b408bf3ad2fffbbb75",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "9f114d56e024597e1f38c8aed380298fbb8008f96f1f81b408bf3ad2fffbbb75"
+      }
+    },
+    {
+      "co_id": "CO2",
+      "outcome_id": "PO8",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "ebbc06a7f924cd0478bad6b64ede0f84f8d70d2706cff120a7306277cea117aa",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "ebbc06a7f924cd0478bad6b64ede0f84f8d70d2706cff120a7306277cea117aa"
+      }
+    },
+    {
+      "co_id": "CO2",
+      "outcome_id": "PO9",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "74b14abb110e3e17288aa074ae34398a745c2f487f6ecc1d69d4147458c9fe57",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "74b14abb110e3e17288aa074ae34398a745c2f487f6ecc1d69d4147458c9fe57"
+      }
+    },
+    {
+      "co_id": "CO2",
+      "outcome_id": "PO10",
+      "suggested_score": 2,
+      "final_score": 2,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. An interpretation must be explained and supported using observed features.",
+      "evidence": [
+        {
+          "module_id": "M2",
+          "quote": "Art as a medium of personal expression."
+        }
+      ],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "9c985ad05c814ef96953b33b2ed07c35d696e69bc9f19f20916645968fb13303",
+      "original_suggestion": {
+        "suggested_score": 2,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. An interpretation must be explained and supported using observed features.",
+        "evidence": [
+          {
+            "module_id": "M2",
+            "quote": "Art as a medium of personal expression."
+          }
+        ],
+        "source_fingerprint": "9c985ad05c814ef96953b33b2ed07c35d696e69bc9f19f20916645968fb13303"
+      }
+    },
+    {
+      "co_id": "CO2",
+      "outcome_id": "PO11",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "3a9b3a7f5e15d63d607b108f9f43d16bbd20b299ebbcd7d883e9c7854e998414",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "3a9b3a7f5e15d63d607b108f9f43d16bbd20b299ebbcd7d883e9c7854e998414"
+      }
+    },
+    {
+      "co_id": "CO2",
+      "outcome_id": "PSO1",
+      "suggested_score": 3,
+      "final_score": 3,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Interpreting aesthetics and artistic expression directly supports this specialisation.",
+      "evidence": [
+        {
+          "module_id": "M2",
+          "quote": "Art as a medium of personal expression."
+        }
+      ],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "6ac01150f68284a608d9f82642a4d224106c80bb73bc34104f637b0ffe05e497",
+      "original_suggestion": {
+        "suggested_score": 3,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. Interpreting aesthetics and artistic expression directly supports this specialisation.",
+        "evidence": [
+          {
+            "module_id": "M2",
+            "quote": "Art as a medium of personal expression."
+          }
+        ],
+        "source_fingerprint": "6ac01150f68284a608d9f82642a4d224106c80bb73bc34104f637b0ffe05e497"
+      }
+    },
+    {
+      "co_id": "CO2",
+      "outcome_id": "PSO2",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "29b541e5cba733c80949bc7e7f4b65c931e5f53df5272ac794c521e5787e482b",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "29b541e5cba733c80949bc7e7f4b65c931e5f53df5272ac794c521e5787e482b"
+      }
+    },
+    {
+      "co_id": "CO3",
+      "outcome_id": "PO1",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "da35650851cb1d63f0d21378fd8d407817ec62635fb369318d6545f1b3495ebb",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "da35650851cb1d63f0d21378fd8d407817ec62635fb369318d6545f1b3495ebb"
+      }
+    },
+    {
+      "co_id": "CO3",
+      "outcome_id": "PO2",
+      "suggested_score": 2,
+      "final_score": 2,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Analysing society and everyday life gives context to design problems.",
+      "evidence": [
+        {
+          "module_id": "M3",
+          "quote": "Art as a mirror and as a transformative force in society."
+        }
+      ],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "664c3c570b357117dc849c7dc76be584a8fdf6a8b89059da858713f61717da13",
+      "original_suggestion": {
+        "suggested_score": 2,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. Analysing society and everyday life gives context to design problems.",
+        "evidence": [
+          {
+            "module_id": "M3",
+            "quote": "Art as a mirror and as a transformative force in society."
+          }
+        ],
+        "source_fingerprint": "664c3c570b357117dc849c7dc76be584a8fdf6a8b89059da858713f61717da13"
+      }
+    },
+    {
+      "co_id": "CO3",
+      "outcome_id": "PO3",
+      "suggested_score": 2,
+      "final_score": 2,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Public-art examples connect social analysis to justified design proposals.",
+      "evidence": [
+        {
+          "module_id": "M3",
+          "quote": "Art as a mirror and as a transformative force in society."
+        }
+      ],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "602fd8693291ea0dbd78ee3413ce5c411be34ba5cfe8c7274c52cde62ffedd0f",
+      "original_suggestion": {
+        "suggested_score": 2,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. Public-art examples connect social analysis to justified design proposals.",
+        "evidence": [
+          {
+            "module_id": "M3",
+            "quote": "Art as a mirror and as a transformative force in society."
+          }
+        ],
+        "source_fingerprint": "602fd8693291ea0dbd78ee3413ce5c411be34ba5cfe8c7274c52cde62ffedd0f"
+      }
+    },
+    {
+      "co_id": "CO3",
+      "outcome_id": "PO4",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "02c2b7e868c41ed06c1ff7092d3c944cf23594cd2334085828b2d55f10107ab8",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "02c2b7e868c41ed06c1ff7092d3c944cf23594cd2334085828b2d55f10107ab8"
+      }
+    },
+    {
+      "co_id": "CO3",
+      "outcome_id": "PO5",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "182453fdb1a984cfe03c5632d5535cb4c410e9e9603923d40f2106856447b69f",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "182453fdb1a984cfe03c5632d5535cb4c410e9e9603923d40f2106856447b69f"
+      }
+    },
+    {
+      "co_id": "CO3",
+      "outcome_id": "PO6",
+      "suggested_score": 3,
+      "final_score": 3,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. The art-design-society relationship is central to this outcome.",
+      "evidence": [
+        {
+          "module_id": "M3",
+          "quote": "Art as a mirror and as a transformative force in society."
+        }
+      ],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "8807da995c84ca2097e847aff6e0bf872fc4a52b40a95d4426329c9a68e2362b",
+      "original_suggestion": {
+        "suggested_score": 3,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. The art-design-society relationship is central to this outcome.",
+        "evidence": [
+          {
+            "module_id": "M3",
+            "quote": "Art as a mirror and as a transformative force in society."
+          }
+        ],
+        "source_fingerprint": "8807da995c84ca2097e847aff6e0bf872fc4a52b40a95d4426329c9a68e2362b"
+      }
+    },
+    {
+      "co_id": "CO3",
+      "outcome_id": "PO7",
+      "suggested_score": 2,
+      "final_score": 2,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. The module discusses designers' responsibilities towards the environment.",
+      "evidence": [
+        {
+          "module_id": "M3",
+          "quote": "Art as a mirror and as a transformative force in society."
+        }
+      ],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "19d269bd84b6a080de4535d97aff8c19ec23ccaabbe23d9fbe913091b1d69e74",
+      "original_suggestion": {
+        "suggested_score": 2,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. The module discusses designers' responsibilities towards the environment.",
+        "evidence": [
+          {
+            "module_id": "M3",
+            "quote": "Art as a mirror and as a transformative force in society."
+          }
+        ],
+        "source_fingerprint": "19d269bd84b6a080de4535d97aff8c19ec23ccaabbe23d9fbe913091b1d69e74"
+      }
+    },
+    {
+      "co_id": "CO3",
+      "outcome_id": "PO8",
+      "suggested_score": 3,
+      "final_score": 3,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Ethics and social responsibility are explicit syllabus topics.",
+      "evidence": [
+        {
+          "module_id": "M3",
+          "quote": "Art as a mirror and as a transformative force in society."
+        }
+      ],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "f7844d7c989d153c690308b62b4a315b7ed35c67fa86bfdcd6c57bd211300bfa",
+      "original_suggestion": {
+        "suggested_score": 3,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. Ethics and social responsibility are explicit syllabus topics.",
+        "evidence": [
+          {
+            "module_id": "M3",
+            "quote": "Art as a mirror and as a transformative force in society."
+          }
+        ],
+        "source_fingerprint": "f7844d7c989d153c690308b62b4a315b7ed35c67fa86bfdcd6c57bd211300bfa"
+      }
+    },
+    {
+      "co_id": "CO3",
+      "outcome_id": "PO9",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "4b3e13da68f38b09b8f0cf4229b56783ba6adeb989ab781b883b8ca37fac9d32",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "4b3e13da68f38b09b8f0cf4229b56783ba6adeb989ab781b883b8ca37fac9d32"
+      }
+    },
+    {
+      "co_id": "CO3",
+      "outcome_id": "PO10",
+      "suggested_score": 2,
+      "final_score": 2,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Analysing the social role of art requires a clearly supported argument.",
+      "evidence": [
+        {
+          "module_id": "M3",
+          "quote": "Art as a mirror and as a transformative force in society."
+        }
+      ],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "92635eb5d0a17c30c3f9e69bdd44ac1c6d035fe3b31796b0a1568883e1365111",
+      "original_suggestion": {
+        "suggested_score": 2,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. Analysing the social role of art requires a clearly supported argument.",
+        "evidence": [
+          {
+            "module_id": "M3",
+            "quote": "Art as a mirror and as a transformative force in society."
+          }
+        ],
+        "source_fingerprint": "92635eb5d0a17c30c3f9e69bdd44ac1c6d035fe3b31796b0a1568883e1365111"
+      }
+    },
+    {
+      "co_id": "CO3",
+      "outcome_id": "PO11",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "74533f85d9cfc91f18b5c8397282899ee0100967fe9f7f0d129c145521a101c0",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "74533f85d9cfc91f18b5c8397282899ee0100967fe9f7f0d129c145521a101c0"
+      }
+    },
+    {
+      "co_id": "CO3",
+      "outcome_id": "PSO1",
+      "suggested_score": 0,
+      "final_score": 0,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+      "evidence": [],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "60f5695f7321a1eb41ce377679d093d248a1d25094819740bad73cad5b28c452",
+      "original_suggestion": {
+        "suggested_score": 0,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. No direct relationship is demonstrated by this CO and its syllabus evidence.",
+        "evidence": [],
+        "source_fingerprint": "60f5695f7321a1eb41ce377679d093d248a1d25094819740bad73cad5b28c452"
+      }
+    },
+    {
+      "co_id": "CO3",
+      "outcome_id": "PSO2",
+      "suggested_score": 3,
+      "final_score": 3,
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Public art, cultural context and environmental responsibility support this specialisation.",
+      "evidence": [
+        {
+          "module_id": "M3",
+          "quote": "Art as a mirror and as a transformative force in society."
+        }
+      ],
+      "status": "approved",
+      "provenance": "prepared_demo",
+      "notes": "Prepared demonstration relationship; review before real use.",
+      "professor_edited": false,
+      "source_fingerprint": "6e486d731b7e4ce5b06a054b22b3cbca1c80c44860d244ac3785210fe2e3f752",
+      "original_suggestion": {
+        "suggested_score": 3,
+        "rationale": "Prepared presentation example; not live AI output or a measured research result. Public art, cultural context and environmental responsibility support this specialisation.",
+        "evidence": [
+          {
+            "module_id": "M3",
+            "quote": "Art as a mirror and as a transformative force in society."
+          }
+        ],
+        "source_fingerprint": "6e486d731b7e4ce5b06a054b22b3cbca1c80c44860d244ac3785210fe2e3f752"
+      }
+    }
+  ],
+  "analysis_questions": [
+    {
+      "id": "AQ1",
+      "number": "1(a)",
+      "text": "List the elements and principles of design.",
+      "marks": 2
+    },
+    {
+      "id": "AQ2",
+      "number": "1(b)",
+      "text": "Explain the three primary components of the Design Quality Triangle.",
+      "marks": 3
+    },
+    {
+      "id": "AQ3",
+      "number": "1(c)",
+      "text": "Discuss how they interact with each other in the context of product design with reference to a smart television.",
+      "marks": 5
+    },
+    {
+      "id": "AQ4",
+      "number": "2(a)",
+      "text": "Explore how personal identity, emotions, and individual experiences are communicated through different forms of art.",
+      "marks": 4
+    },
+    {
+      "id": "AQ5",
+      "number": "2(b)",
+      "text": "Why are some artworks revered across generations regardless of changing artistic trends?",
+      "marks": 4
+    },
+    {
+      "id": "AQ6",
+      "number": "3(a)",
+      "text": "Critically analyze how art acts as a transformative force in society by challenging norms and promoting social awareness.",
+      "marks": 4
+    },
+    {
+      "id": "AQ7",
+      "number": "3(b)",
+      "text": "Propose a public art installation for your campus that addresses a social issue, and justify your design choices.",
+      "marks": 6
+    }
+  ],
+  "analyses": {
+    "AQ1": {
+      "suggestion": {
+        "co": "CO1",
+        "bloom_levels": [
+          "L1"
+        ],
+        "topic": "Art and aesthetics",
+        "reason": "Prepared presentation example; not live AI output or a measured research result. Use this prepared example to demonstrate reviewing and correcting final labels.",
+        "confidence": "Not measured (demo)",
+        "error": "",
+        "co_ranking": [],
+        "syllabus_chunks": [],
+        "total_votes": 0,
+        "votes_for_co": 0,
+        "provenance": "prepared_demo",
+        "sample_evidence": [
+          {
+            "module_id": "M1",
+            "quote": "Introduction to art and aesthetics."
+          }
+        ]
+      },
+      "final_co": "CO1",
+      "final_bloom": [
+        "L1"
+      ],
+      "status": "approved",
+      "notes": "Demonstration labels; not a research ground truth.",
+      "question_fingerprint": "75a4b674d0839ed2bc27d31a4dc5e8af07c3209385b94fbfa888d73fc08bbdcd",
+      "source_fingerprint": "fdaec7d25c90579f1a646b9a514733c25c417f95b0b878a928f48b2ae070d6a2"
+    },
+    "AQ2": {
+      "suggestion": {
+        "co": "CO1",
+        "bloom_levels": [
+          "L2"
+        ],
+        "topic": "Art and aesthetics",
+        "reason": "Prepared presentation example; not live AI output or a measured research result. Use this prepared example to demonstrate reviewing and correcting final labels.",
+        "confidence": "Not measured (demo)",
+        "error": "",
+        "co_ranking": [],
+        "syllabus_chunks": [],
+        "total_votes": 0,
+        "votes_for_co": 0,
+        "provenance": "prepared_demo",
+        "sample_evidence": [
+          {
+            "module_id": "M1",
+            "quote": "Introduction to art and aesthetics."
+          }
+        ]
+      },
+      "final_co": "CO1",
+      "final_bloom": [
+        "L2"
+      ],
+      "status": "approved",
+      "notes": "Demonstration labels; not a research ground truth.",
+      "question_fingerprint": "a04918b390f46225e343e0de91eeadf67b431725c5c340f41b1163b8c0b3da01",
+      "source_fingerprint": "fdaec7d25c90579f1a646b9a514733c25c417f95b0b878a928f48b2ae070d6a2"
+    },
+    "AQ3": {
+      "suggestion": {
+        "co": "CO1",
+        "bloom_levels": [
+          "L2"
+        ],
+        "topic": "Art and aesthetics",
+        "reason": "Prepared presentation example; not live AI output or a measured research result. Use this prepared example to demonstrate reviewing and correcting final labels.",
+        "confidence": "Not measured (demo)",
+        "error": "",
+        "co_ranking": [],
+        "syllabus_chunks": [],
+        "total_votes": 0,
+        "votes_for_co": 0,
+        "provenance": "prepared_demo",
+        "sample_evidence": [
+          {
+            "module_id": "M1",
+            "quote": "Introduction to art and aesthetics."
+          }
+        ]
+      },
+      "final_co": "CO1",
+      "final_bloom": [
+        "L4"
+      ],
+      "status": "approved",
+      "notes": "Prepared correction: L4 reflects analysis of interacting components, beyond explanation.",
+      "question_fingerprint": "4c85d654e4b7d7a5debfb51527b4b2f4557728c59ae797de24739e73262254b2",
+      "source_fingerprint": "fdaec7d25c90579f1a646b9a514733c25c417f95b0b878a928f48b2ae070d6a2"
+    },
+    "AQ4": {
+      "suggestion": {
+        "co": "CO2",
+        "bloom_levels": [
+          "L4"
+        ],
+        "topic": "Art and aesthetics",
+        "reason": "Prepared presentation example; not live AI output or a measured research result. Use this prepared example to demonstrate reviewing and correcting final labels.",
+        "confidence": "Not measured (demo)",
+        "error": "",
+        "co_ranking": [],
+        "syllabus_chunks": [],
+        "total_votes": 0,
+        "votes_for_co": 0,
+        "provenance": "prepared_demo",
+        "sample_evidence": [
+          {
+            "module_id": "M2",
+            "quote": "Art as a medium of personal expression."
+          }
+        ]
+      },
+      "final_co": "CO2",
+      "final_bloom": [
+        "L4"
+      ],
+      "status": "approved",
+      "notes": "Demonstration labels; not a research ground truth.",
+      "question_fingerprint": "31ddb588cfbf462823b7c09b5f86776aff836bd36cad6dc375ba9cb0b0ede7af",
+      "source_fingerprint": "fdaec7d25c90579f1a646b9a514733c25c417f95b0b878a928f48b2ae070d6a2"
+    },
+    "AQ5": {
+      "suggestion": {
+        "co": "CO2",
+        "bloom_levels": [
+          "L5"
+        ],
+        "topic": "Art and aesthetics",
+        "reason": "Prepared presentation example; not live AI output or a measured research result. Use this prepared example to demonstrate reviewing and correcting final labels.",
+        "confidence": "Not measured (demo)",
+        "error": "",
+        "co_ranking": [],
+        "syllabus_chunks": [],
+        "total_votes": 0,
+        "votes_for_co": 0,
+        "provenance": "prepared_demo",
+        "sample_evidence": [
+          {
+            "module_id": "M2",
+            "quote": "Art as a medium of personal expression."
+          }
+        ]
+      },
+      "final_co": "CO2",
+      "final_bloom": [
+        "L5"
+      ],
+      "status": "approved",
+      "notes": "Demonstration labels; not a research ground truth.",
+      "question_fingerprint": "67696f93e82bb2a45ceca7a24f2f54c5a7033020b68b1512440e7c314d556a47",
+      "source_fingerprint": "fdaec7d25c90579f1a646b9a514733c25c417f95b0b878a928f48b2ae070d6a2"
+    },
+    "AQ6": {
+      "suggestion": {
+        "co": "CO3",
+        "bloom_levels": [
+          "L4",
+          "L5"
+        ],
+        "topic": "Art and aesthetics",
+        "reason": "Prepared presentation example; not live AI output or a measured research result. Use this prepared example to demonstrate reviewing and correcting final labels.",
+        "confidence": "Not measured (demo)",
+        "error": "",
+        "co_ranking": [],
+        "syllabus_chunks": [],
+        "total_votes": 0,
+        "votes_for_co": 0,
+        "provenance": "prepared_demo",
+        "sample_evidence": [
+          {
+            "module_id": "M3",
+            "quote": "Art as a mirror and as a transformative force in society."
+          }
+        ]
+      },
+      "final_co": "CO3",
+      "final_bloom": [
+        "L4",
+        "L5"
+      ],
+      "status": "approved",
+      "notes": "Demonstration labels; not a research ground truth.",
+      "question_fingerprint": "65843a96d7d3bf07a4413c840e6273bfc934a703c6aa6e573bdfe2dba982463f",
+      "source_fingerprint": "fdaec7d25c90579f1a646b9a514733c25c417f95b0b878a928f48b2ae070d6a2"
+    },
+    "AQ7": {
+      "suggestion": {
+        "co": "CO3",
+        "bloom_levels": [
+          "L6"
+        ],
+        "topic": "Art and aesthetics",
+        "reason": "Prepared presentation example; not live AI output or a measured research result. Use this prepared example to demonstrate reviewing and correcting final labels.",
+        "confidence": "Not measured (demo)",
+        "error": "",
+        "co_ranking": [],
+        "syllabus_chunks": [],
+        "total_votes": 0,
+        "votes_for_co": 0,
+        "provenance": "prepared_demo",
+        "sample_evidence": [
+          {
+            "module_id": "M3",
+            "quote": "Art as a mirror and as a transformative force in society."
+          }
+        ]
+      },
+      "final_co": "CO3",
+      "final_bloom": [
+        "L6"
+      ],
+      "status": "approved",
+      "notes": "Demonstration labels; not a research ground truth.",
+      "question_fingerprint": "280d5edf81f2d35e67338f1062b90c4bb095e5d9ee5594cfdece676e09bc1c2c",
+      "source_fingerprint": "fdaec7d25c90579f1a646b9a514733c25c417f95b0b878a928f48b2ae070d6a2"
+    }
+  },
+  "blueprint": {
+    "exam_type": "Mid-semester",
+    "title": "Art & Aesthetics in Design — Demonstration paper",
+    "duration": "90 minutes",
+    "date": "2026-11-16",
+    "target_marks": 30,
+    "module_ids": [
+      "M1",
+      "M2",
+      "M3"
+    ],
+    "co_ids": [
+      "CO1",
+      "CO2",
+      "CO3"
+    ],
+    "bloom_levels": [
+      "L2",
+      "L4",
+      "L5",
+      "L6"
+    ],
+    "difficulty": "Mixed",
+    "instructions": "Answer all questions.\nUse neat labelled diagrams where necessary.\nSupport your answers with relevant examples.",
+    "sections": [
+      {
+        "id": "SEC1",
+        "title": "Section A — Art, aesthetics and society",
+        "instructions": "Each question carries 5 marks.",
+        "mode": "compulsory",
+        "count": 6,
+        "attempt": 6,
+        "marks": 5,
+        "question_marks": [],
+        "subquestions": []
+      }
+    ],
+    "acknowledgment": null
+  },
+  "paper_questions": [
+    {
+      "section_id": "SEC1",
+      "choice_group": null,
+      "parent_marks": 5,
+      "question_index": 0,
+      "alternative": null,
+      "id": "SEC1:1",
+      "slot_id": "SEC1:1",
+      "number": "1",
+      "parent_id": null,
+      "marks": 5,
+      "text": "Explain aesthetics, function and usability in the Design Quality Triangle. Use a familiar chair as an example to show how the three components interact.",
+      "co_id": "CO1",
+      "bloom_levels": [
+        "L2"
+      ],
+      "module_ids": [
+        "M1"
+      ],
+      "answer": "Aesthetics concerns the chair's visual and sensory character; function concerns support for sitting; usability concerns ease and comfort of use. A suitable example explains how a visual or structural change can affect the other components.",
+      "difficulty": "Moderate",
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Requires an explanation of three taught concepts and their relationship in an everyday product.",
+      "evidence": [
+        {
+          "module_id": "M1",
+          "quote": "aesthetics, function and usability."
+        }
+      ],
+      "status": "approved",
+      "locked": true,
+      "origin": "prepared_demo",
+      "notes": "Presentation sample; review before adapting to a real assessment.",
+      "marking_guide": [
+        {
+          "criterion": "Explain aesthetics, function and usability",
+          "marks": 3
+        },
+        {
+          "criterion": "Explain their interaction using the chair example",
+          "marks": 2
+        }
+      ],
+      "requested_co_ids": [
+        "CO1",
+        "CO2",
+        "CO3"
+      ],
+      "requested_bloom_levels": [
+        "L2",
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "requested_module_ids": [
+        "M1",
+        "M2",
+        "M3"
+      ],
+      "source_fingerprint": "861da82b5c083c4e46dd888a67e62f0f9ee2401e54c2993209cbf83e76c4ee2c"
+    },
+    {
+      "section_id": "SEC1",
+      "choice_group": null,
+      "parent_marks": 5,
+      "question_index": 1,
+      "alternative": null,
+      "id": "SEC1:2",
+      "slot_id": "SEC1:2",
+      "number": "2",
+      "parent_id": null,
+      "marks": 5,
+      "text": "Smartphone A has a visually striking interface with hidden controls. Smartphone B has plain styling and clearly labelled controls. Analyse two trade-offs between aesthetics and usability using the Design Quality Triangle.",
+      "co_id": "CO1",
+      "bloom_levels": [
+        "L4"
+      ],
+      "module_ids": [
+        "M1"
+      ],
+      "answer": "A justified answer compares the visual character and discoverability of the supplied interfaces, explains two possible trade-offs, and connects the comparison to function and usability. Either interface may be preferred when supported by a clear context.",
+      "difficulty": "Moderate",
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Requires reasoning about relationships and trade-offs, rather than merely naming the components.",
+      "evidence": [
+        {
+          "module_id": "M1",
+          "quote": "aesthetics, function and usability."
+        }
+      ],
+      "status": "needs_review",
+      "locked": false,
+      "origin": "prepared_demo",
+      "notes": "Prepared review example: inspect the differing Bloom suggestions.",
+      "marking_guide": [
+        {
+          "criterion": "Analyse two distinct trade-offs",
+          "marks": 4
+        },
+        {
+          "criterion": "Connect the analysis to the Design Quality Triangle",
+          "marks": 1
+        }
+      ],
+      "requested_co_ids": [
+        "CO1",
+        "CO2",
+        "CO3"
+      ],
+      "requested_bloom_levels": [
+        "L2",
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "requested_module_ids": [
+        "M1",
+        "M2",
+        "M3"
+      ],
+      "source_fingerprint": "861da82b5c083c4e46dd888a67e62f0f9ee2401e54c2993209cbf83e76c4ee2c",
+      "analysis": {
+        "suggestion": {
+          "co": "CO1",
+          "bloom_levels": [
+            "L2"
+          ],
+          "topic": "Art and aesthetics",
+          "reason": "Prepared presentation example; not live AI output or a measured research result. A staged disagreement for demonstrating professor control; not an actual model prediction.",
+          "confidence": "Not measured (demo)",
+          "error": "",
+          "co_ranking": [],
+          "syllabus_chunks": [],
+          "total_votes": 0,
+          "votes_for_co": 0,
+          "provenance": "prepared_demo",
+          "sample_evidence": [
+            {
+              "module_id": "M1",
+              "quote": "aesthetics, function and usability."
+            }
+          ]
+        },
+        "disagrees": true,
+        "status": "needs_review",
+        "provenance": "prepared_demo",
+        "question_fingerprint": "e4e3761bb28a98ad229b0bf8118467cf78b8f556f62ff15c8df7a37a9778f2e2",
+        "source_fingerprint": "fdaec7d25c90579f1a646b9a514733c25c417f95b0b878a928f48b2ae070d6a2"
+      }
+    },
+    {
+      "section_id": "SEC1",
+      "choice_group": null,
+      "parent_marks": 5,
+      "question_index": 2,
+      "alternative": null,
+      "id": "SEC1:3",
+      "slot_id": "SEC1:3",
+      "number": "3",
+      "parent_id": null,
+      "marks": 5,
+      "text": "A photograph shows an empty chair beside a family portrait in a dim room. Analyse how these visual choices could communicate memory and personal identity. Explain why two viewers might interpret the photograph differently.",
+      "co_id": "CO2",
+      "bloom_levels": [
+        "L4"
+      ],
+      "module_ids": [
+        "M2"
+      ],
+      "answer": "Possible interpretations link the empty chair to absence, the family portrait to shared identity, and the setting to memory or emotion. Alternative interpretations are acceptable when grounded in the described features and differences in viewers' experiences.",
+      "difficulty": "Moderate",
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Provides a complete visual scenario and asks for relationships between features, meaning and subjective interpretation.",
+      "evidence": [
+        {
+          "module_id": "M2",
+          "quote": "Art as a medium of personal expression."
+        }
+      ],
+      "status": "approved",
+      "locked": true,
+      "origin": "prepared_demo",
+      "notes": "Presentation sample; review before adapting to a real assessment.",
+      "marking_guide": [
+        {
+          "criterion": "Analyse two features in relation to memory or identity",
+          "marks": 3
+        },
+        {
+          "criterion": "Explain differences between viewers' interpretations",
+          "marks": 2
+        }
+      ],
+      "requested_co_ids": [
+        "CO1",
+        "CO2",
+        "CO3"
+      ],
+      "requested_bloom_levels": [
+        "L2",
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "requested_module_ids": [
+        "M1",
+        "M2",
+        "M3"
+      ],
+      "source_fingerprint": "861da82b5c083c4e46dd888a67e62f0f9ee2401e54c2993209cbf83e76c4ee2c"
+    },
+    {
+      "section_id": "SEC1",
+      "choice_group": null,
+      "parent_marks": 5,
+      "question_index": 3,
+      "alternative": null,
+      "id": "SEC1:4",
+      "slot_id": "SEC1:4",
+      "number": "4",
+      "parent_id": null,
+      "marks": 5,
+      "text": "Two viewers disagree about a sculpture: one values technical craftsmanship while the other values originality. Evaluate both positions and give a justified judgment using criteria of artistic merit.",
+      "co_id": "CO2",
+      "bloom_levels": [
+        "L5"
+      ],
+      "module_ids": [
+        "M2"
+      ],
+      "answer": "A strong answer explains what each criterion contributes, recognises limitations of judging by only one criterion, and reaches a reasoned conclusion. No single preference is required.",
+      "difficulty": "Challenging",
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Requires a judgment supported by explicit criteria, while allowing more than one defensible conclusion.",
+      "evidence": [
+        {
+          "module_id": "M2",
+          "quote": "Criteria used to judge artistic merit, originality and craftsmanship."
+        }
+      ],
+      "status": "approved",
+      "locked": true,
+      "origin": "prepared_demo",
+      "notes": "Presentation sample; review before adapting to a real assessment.",
+      "marking_guide": [
+        {
+          "criterion": "Evaluate craftsmanship and originality as criteria",
+          "marks": 3
+        },
+        {
+          "criterion": "Give a justified and balanced judgment",
+          "marks": 2
+        }
+      ],
+      "requested_co_ids": [
+        "CO1",
+        "CO2",
+        "CO3"
+      ],
+      "requested_bloom_levels": [
+        "L2",
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "requested_module_ids": [
+        "M1",
+        "M2",
+        "M3"
+      ],
+      "source_fingerprint": "861da82b5c083c4e46dd888a67e62f0f9ee2401e54c2993209cbf83e76c4ee2c"
+    },
+    {
+      "section_id": "SEC1",
+      "choice_group": null,
+      "parent_marks": 5,
+      "question_index": 4,
+      "alternative": null,
+      "id": "SEC1:5",
+      "slot_id": "SEC1:5",
+      "number": "5",
+      "parent_id": null,
+      "marks": 5,
+      "text": "A campus proposes replacing a traditional craft display with a mass-produced installation. Evaluate one cultural and one environmental consequence, then recommend an approach that recognises the designer's responsibilities.",
+      "co_id": "CO3",
+      "bloom_levels": [
+        "L5"
+      ],
+      "module_ids": [
+        "M3"
+      ],
+      "answer": "Answers may consider continuity of craft traditions, representation, materials and resource use. Environmental effects should be explained as conditional possibilities because no life-cycle data are supplied. A recommendation must weigh both types of consequence.",
+      "difficulty": "Moderate",
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Connects a supplied social-design scenario to cultural context, ethics and environmental responsibility.",
+      "evidence": [
+        {
+          "module_id": "M3",
+          "quote": "Ethics and responsibility of the designer\ntowards society and the environment."
+        }
+      ],
+      "status": "approved",
+      "locked": true,
+      "origin": "prepared_demo",
+      "notes": "Presentation sample; review before adapting to a real assessment.",
+      "marking_guide": [
+        {
+          "criterion": "Evaluate a cultural consequence",
+          "marks": 2
+        },
+        {
+          "criterion": "Evaluate an environmental consequence",
+          "marks": 2
+        },
+        {
+          "criterion": "Justify a responsible recommendation",
+          "marks": 1
+        }
+      ],
+      "requested_co_ids": [
+        "CO1",
+        "CO2",
+        "CO3"
+      ],
+      "requested_bloom_levels": [
+        "L2",
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "requested_module_ids": [
+        "M1",
+        "M2",
+        "M3"
+      ],
+      "source_fingerprint": "861da82b5c083c4e46dd888a67e62f0f9ee2401e54c2993209cbf83e76c4ee2c"
+    },
+    {
+      "section_id": "SEC1",
+      "choice_group": null,
+      "parent_marks": 5,
+      "question_index": 5,
+      "alternative": null,
+      "id": "SEC1:6",
+      "slot_id": "SEC1:6",
+      "number": "6",
+      "parent_id": null,
+      "marks": 5,
+      "text": "Propose a small public art installation that encourages waste segregation on a college campus. Describe its concept, materials and visitor interaction, and justify how it could create social awareness.",
+      "co_id": "CO3",
+      "bloom_levels": [
+        "L6"
+      ],
+      "module_ids": [
+        "M3"
+      ],
+      "answer": "One possible concept is an interactive installation using clearly separated reclaimed materials. Visitors place sample objects into labelled parts of the artwork. Any coherent, feasible proposal may be credited when its materials, interaction and awareness goal are justified.",
+      "difficulty": "Challenging",
+      "rationale": "Prepared presentation example; not live AI output or a measured research result. Asks for a new, bounded proposal with an explicit social purpose and a justified relationship between design and awareness.",
+      "evidence": [
+        {
+          "module_id": "M3",
+          "quote": "awareness and shaping public opinion."
+        }
+      ],
+      "status": "draft",
+      "locked": false,
+      "origin": "prepared_demo",
+      "notes": "Presentation sample; review before adapting to a real assessment.",
+      "marking_guide": [
+        {
+          "criterion": "Develop a coherent installation concept",
+          "marks": 2
+        },
+        {
+          "criterion": "Describe appropriate materials and interaction",
+          "marks": 2
+        },
+        {
+          "criterion": "Justify the social-awareness goal",
+          "marks": 1
+        }
+      ],
+      "requested_co_ids": [
+        "CO1",
+        "CO2",
+        "CO3"
+      ],
+      "requested_bloom_levels": [
+        "L2",
+        "L4",
+        "L5",
+        "L6"
+      ],
+      "requested_module_ids": [
+        "M1",
+        "M2",
+        "M3"
+      ],
+      "source_fingerprint": "861da82b5c083c4e46dd888a67e62f0f9ee2401e54c2993209cbf83e76c4ee2c"
+    }
+  ],
+  "revisions": {
+    "source_records": {
+      "modules": [
+        {
+          "id": "M1",
+          "title": "Unit 1: Foundations of Art, Aesthetics and Design Quality",
+          "text": "Unit 1: Foundations of Art, Aesthetics and Design Quality\nIntroduction to art and aesthetics. Definition of beauty, form and proportion.\nElements and principles of design: line, shape, colour, texture, balance, rhythm,\ncontrast and unity. The Design Quality Triangle and its three primary components,\nnamely aesthetics, function and usability. How the three components are balanced\nagainst each other in a product, and how a change in one component affects the\nothers. Examples from everyday consumer products such as furniture, mobile phones\nand televisions."
+        },
+        {
+          "id": "M2",
+          "title": "Unit 2: Art, Identity and Human Experience",
+          "text": "Unit 2: Art, Identity and Human Experience\nArt as a medium of personal expression. How personal identity, memory, emotion and\nlived experience are communicated through painting, sculpture, photography, music\nand performance. Interpretation of an artwork by the viewer. Subjectivity of taste.\nWhy certain artworks remain valued across generations while artistic trends change.\nCriteria used to judge artistic merit, originality and craftsmanship."
+        },
+        {
+          "id": "M3",
+          "title": "Unit 3: Art, Design and Society",
+          "text": "Unit 3: Art, Design and Society\nArt as a mirror and as a transformative force in society. Art movements and social\nchange. Design and culture, tradition and modernity. Public art, craft traditions\nand everyday objects. The role of art in questioning social norms, creating social\nawareness and shaping public opinion. Ethics and responsibility of the designer\ntowards society and the environment."
+        }
+      ],
+      "approved_cos": [
+        {
+          "id": "CO1",
+          "statement": "Explain fundamental concepts and principles related to art, aesthetics and design quality.",
+          "module_ids": [
+            "M1"
+          ],
+          "bloom_levels": [
+            "L2"
+          ],
+          "rationale": "Prepared presentation example; not live AI output or a measured research result. Grounded in the corresponding syllabus unit.",
+          "evidence": [
+            {
+              "module_id": "M1",
+              "quote": "Introduction to art and aesthetics."
+            }
+          ],
+          "origin": "prepared_demo",
+          "notes": "Approval staged for presentation; not an institutional decision."
+        },
+        {
+          "id": "CO2",
+          "statement": "Interpret and evaluate art in relation to identity, emotion and individual human experience.",
+          "module_ids": [
+            "M2"
+          ],
+          "bloom_levels": [
+            "L4",
+            "L5"
+          ],
+          "rationale": "Prepared presentation example; not live AI output or a measured research result. Grounded in the corresponding syllabus unit.",
+          "evidence": [
+            {
+              "module_id": "M2",
+              "quote": "Art as a medium of personal expression."
+            }
+          ],
+          "origin": "prepared_demo",
+          "notes": "Approval staged for presentation; not an institutional decision."
+        },
+        {
+          "id": "CO3",
+          "statement": "Analyze the relationship between art, design, society and everyday life.",
+          "module_ids": [
+            "M3"
+          ],
+          "bloom_levels": [
+            "L4",
+            "L5",
+            "L6"
+          ],
+          "rationale": "Prepared presentation example; not live AI output or a measured research result. Grounded in the corresponding syllabus unit.",
+          "evidence": [
+            {
+              "module_id": "M3",
+              "quote": "Art as a mirror and as a transformative force in society."
+            }
+          ],
+          "origin": "prepared_demo",
+          "notes": "Approval staged for presentation; not an institutional decision."
+        }
+      ],
+      "programme_outcomes": [
+        {
+          "id": "PO1",
+          "kind": "PO",
+          "statement": "[Illustrative demo] Apply art and design principles to analyse familiar products.",
+          "approved": true
+        },
+        {
+          "id": "PO2",
+          "kind": "PO",
+          "statement": "[Illustrative demo] Analyse design problems in relation to user needs and context.",
+          "approved": true
+        },
+        {
+          "id": "PO3",
+          "kind": "PO",
+          "statement": "[Illustrative demo] Develop and justify design concepts for a stated context.",
+          "approved": true
+        },
+        {
+          "id": "PO4",
+          "kind": "PO",
+          "statement": "[Illustrative demo] Investigate alternatives using visual analysis and relevant examples.",
+          "approved": true
+        },
+        {
+          "id": "PO5",
+          "kind": "PO",
+          "statement": "[Illustrative demo] Select appropriate visual communication tools and methods.",
+          "approved": true
+        },
+        {
+          "id": "PO6",
+          "kind": "PO",
+          "statement": "[Illustrative demo] Evaluate design choices in relation to society and cultural context.",
+          "approved": true
+        },
+        {
+          "id": "PO7",
+          "kind": "PO",
+          "statement": "[Illustrative demo] Consider environmental responsibility in design decisions.",
+          "approved": true
+        },
+        {
+          "id": "PO8",
+          "kind": "PO",
+          "statement": "[Illustrative demo] Justify ethical decisions in art and design practice.",
+          "approved": true
+        },
+        {
+          "id": "PO9",
+          "kind": "PO",
+          "statement": "[Illustrative demo] Collaborate effectively when developing and reviewing design work.",
+          "approved": true
+        },
+        {
+          "id": "PO10",
+          "kind": "PO",
+          "statement": "[Illustrative demo] Communicate design ideas clearly using appropriate representations.",
+          "approved": true
+        },
+        {
+          "id": "PO11",
+          "kind": "PO",
+          "statement": "[Illustrative demo] Reflect on feedback and extend personal learning in design.",
+          "approved": true
+        },
+        {
+          "id": "PSO1",
+          "kind": "PSO",
+          "statement": "[Illustrative demo] Interpret art and aesthetics to improve human-centred design concepts.",
+          "approved": true
+        },
+        {
+          "id": "PSO2",
+          "kind": "PSO",
+          "statement": "[Illustrative demo] Propose culturally sensitive and environmentally responsible public design interventions.",
+          "approved": true
+        }
+      ],
+      "analysis_questions": [
+        {
+          "id": "AQ1",
+          "number": "1(a)",
+          "text": "List the elements and principles of design.",
+          "marks": 2
+        },
+        {
+          "id": "AQ2",
+          "number": "1(b)",
+          "text": "Explain the three primary components of the Design Quality Triangle.",
+          "marks": 3
+        },
+        {
+          "id": "AQ3",
+          "number": "1(c)",
+          "text": "Discuss how they interact with each other in the context of product design with reference to a smart television.",
+          "marks": 5
+        },
+        {
+          "id": "AQ4",
+          "number": "2(a)",
+          "text": "Explore how personal identity, emotions, and individual experiences are communicated through different forms of art.",
+          "marks": 4
+        },
+        {
+          "id": "AQ5",
+          "number": "2(b)",
+          "text": "Why are some artworks revered across generations regardless of changing artistic trends?",
+          "marks": 4
+        },
+        {
+          "id": "AQ6",
+          "number": "3(a)",
+          "text": "Critically analyze how art acts as a transformative force in society by challenging norms and promoting social awareness.",
+          "marks": 4
+        },
+        {
+          "id": "AQ7",
+          "number": "3(b)",
+          "text": "Propose a public art installation for your campus that addresses a social issue, and justify your design choices.",
+          "marks": 6
+        }
+      ],
+      "sections": [
+        {
+          "id": "SEC1",
+          "title": "Section A — Art, aesthetics and society",
+          "instructions": "Each question carries 5 marks.",
+          "mode": "compulsory",
+          "count": 6,
+          "attempt": 6,
+          "marks": 5,
+          "question_marks": [],
+          "subquestions": []
+        }
+      ]
+    },
+    "sources": {
+      "cos": {
+        "CO1": "cbf1a2e99d7138a1bdbb6492122aa7992567bd4bda766070882308041247a753",
+        "CO2": "9e2483f814025f838ff3a15fbcbbb55a3fc2f0f971815b8a06548ead0cafc213",
+        "CO3": "4646024689864a3dc07042a4c89ca241a8e7141ad1e43316eb3f80bc48bdcb91"
+      },
+      "pos": {
+        "PO1": "055b509b1a10b4ecd9251ff73e006dd54e9acaad11d993739f547383d0385d57",
+        "PO2": "f2f71860b0a80f964988d20feec50766b5e5a25e41ee734e0afdfa5e0ee0871f",
+        "PO3": "d02248d99ee4ec021262afe8badba5ff9a13f3033fa2671ee5a7531752e5c173",
+        "PO4": "b93c6088db86e5b06ddc9475b9d5edc9c928493b37ef4fe20c56059644e15d5d",
+        "PO5": "d9aa2c78a8ccc62f196eaa3c06f2f76160640681c95e866daeda8a70fcc5b210",
+        "PO6": "bb95a5a51acf831119f653303ab71d9e3cbe92ede051ce8ea996bf1db11e56c3",
+        "PO7": "7b8c099abaafa28e6fb634dbe9a0b55e9438e202e1ab4f8a0f3433b8cadf88d2",
+        "PO8": "deccb5bdf1891566d71a1399a270e35f09ed8cadb1de6d266b7d7277ae79fbe2",
+        "PO9": "43172711c8a1e09b08e015a9913ccf15aa097208c90dfffe900889607c4c1e97",
+        "PO10": "508cc72e0c25b1190dfd2ec1d2d1994e86cc6a686521a5ba7ad0c9ac734cb1a4",
+        "PO11": "db91f94ba2ba0382719a2421d033ce7fa52d28b8b871509a5ca92ce1deda35d5",
+        "PSO1": "ef2ec57fa36668befab552dbca14696c10e57e28f6a88274f820ee61bdd09217",
+        "PSO2": "25ab645ef59204a15ea075b323bfc5132365521c632158fb2edbd9ac8c2ba45a"
+      },
+      "po_statements": {
+        "PO1": "4ad278c38e56508c2d1c1928161d864f2f88e3616c49c70afa87614b008ac7f5",
+        "PO2": "af49864eab086dc462c8483fd9e0b07ff954ab0eaa3f5df53528fa5308e44c30",
+        "PO3": "b18199460ef0f682f428c21eedc05a6ddcf69c482ee33f2a080a014f040b399c",
+        "PO4": "b3cf20f8eed88539539c0c6f8fbc1923384561ad1f46abcbba15069723102ea5",
+        "PO5": "7188ba39b810d827666814c77ab51940edf9ed9dede8761f98a6726c41d22f69",
+        "PO6": "de007e8c7a43ad5b6a4cfb85393870b03d98b546443c81f2c1dc4f2a66e42d86",
+        "PO7": "6925f23ab4747f09578109ffa05c9a62337b0799633e006ec0985464813686d8",
+        "PO8": "40a9c0e680d3e7d2f62783d5b7741cad1643a93d074cc1e1bc1977ea1548c17a",
+        "PO9": "9aeb4a07e5b738f653f343346158ca064a850de47dd00b7165b2723336855847",
+        "PO10": "cebcb559a73410ea27fb4c83d2a3575a392a1c923abf531f2e2848e23ea76412",
+        "PO11": "2fc2512160950c97647b3bac74a47983b131fa05114a91949c3e84e808a455ea",
+        "PSO1": "48279451b07e96b4b043a4eebfa2d9797cc833d25343b9b5bbfe75d33e8899ac",
+        "PSO2": "9aef1b4faa4efdbbcfca550ab866fd97c51a207b50bac57716d874283297458a"
+      },
+      "paper_questions": {
+        "SEC1:1": "cc51970bd36cd40adc35f13d75b0f5cadba7c89a9c7fedf20544b92b6a2c356e",
+        "SEC1:2": "eb14a1fa3b82ea5558a394f263b6ba44fba6086b4117f19a20b9b39d205ae748",
+        "SEC1:3": "526421bf4a674eb163586a33f3fb92393c1fc99c6443d9d346ca06f751897244",
+        "SEC1:4": "c6f04b03261ce45fe4270ef422cad7a8457e9dec98eca3ce5e406011c2157f0e",
+        "SEC1:5": "59cf17592f3b67bbb5d63b5856718b2a73661c20ff1e2a26987a0b47c4d0b0a3",
+        "SEC1:6": "c76aaed6517716c16856ab78eb69583784fb624353331c61c56f72116a7ddce6"
+      }
+    }
+  },
+  "retired_sources": {
+    "modules": [],
+    "approved_cos": [],
+    "programme_outcomes": [],
+    "analysis_questions": [],
+    "sections": []
+  },
+  "presentation_demo": true
+}

@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-16",
+  "browser": "Local Chrome headless through CDP; isolated task profile",
+  "viewports": {
+    "desktop": [
+      1440,
+      1000
+    ],
+    "mobile": [
+      390,
+      844
+    ]
+  },
+  "live_gemini_tested": false,
+  "embedding_model_downloaded": false,
+  "fixture": "Temporary manually authored ID2103 paper, five compulsory questions ? five marks, target30; no AI-generated content",
+  "navigation": [
+    "Course & Syllabus",
+    "Course Outcomes",
+    "CO–PO / PSO Mapping",
+    "Analyse Existing Questions",
+    "Build Question Paper",
+    "Review & Export"
+  ],
+  "checks": {
+    "loaded_id2103_sample": true,
+    "six_pages_without_streamlit_errors": true,
+    "paper_preview_uses_actual25": true,
+    "target_edit_invalidates_acknowledgment": true,
+    "continue_records_acknowledgment": true,
+    "question_edit_survives_navigation_to_preview": true,
+    "desktop_and_mobile_visually_inspected": true,
+    "mobile_horizontal_overflow": false,
+    "browser_runtime_exception_count": 0
+  },
+  "server_health_before_shutdown": {
+    "8507": 200,
+    "8508": 200
+  },
+  "screenshots": [
+    ".tmp/qa/01-empty-course-desktop.png",
+    ".tmp/qa/02-sample-course.png",
+    ".tmp/qa/03-sample-course.png",
+    ".tmp/qa/04-sample-co–po.png",
+    ".tmp/qa/05-sample-analyse.png",
+    ".tmp/qa/06-sample-build.png",
+    ".tmp/qa/07-sample-review.png",
+    ".tmp/qa/08-course-mobile.png",
+    ".tmp/qa/09-fixture-paper-preview.png",
+    ".tmp/qa/10-fixture-marks-override.png",
+    ".tmp/qa/11-fixture-ack-invalidated.png",
+    ".tmp/qa/12-fixture-edited-preview.png",
+    ".tmp/qa/13-fixture-preview-mobile.png",
+    ".tmp/qa/14-fixture-question-editor.png"
+  ],
+  "limitations": [
+    "PDF/DOCX downloads were covered by separate export checks; this browser run did not invoke live Gemini or embedding downloads."
+  ]
+}

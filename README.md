@@ -1,473 +1,294 @@
-# Automatic Course Outcome and Bloom's Taxonomy Level Detection from Examination Questions using RAG and LLM
+﻿# Course Outcomes & Assessment Studio
 
-A small research prototype built as a college Research Project (RP).
+A Streamlit faculty workspace for syllabus preparation, Course Outcomes,
+CO–PO/PSO mapping, examination-question analysis and question-paper preparation.
+This Industrial Design HCI/UX research project makes AI suggestions, evidence,
+professor corrections and approval decisions visible. It does not establish
+classification accuracy, usability gains, student attainment or accreditation.
 
----
+## Run locally
 
-## Problem statement
+Use a supported Python environment with the packages in `requirements.txt`:
 
-In our university, professors write examination questions manually and then map
-each question to:
-
-1. a **Course Outcome (CO)** defined for that course, and
-2. one or more **Bloom's Taxonomy levels (BL)**.
-
-This mapping is done by hand for every question of every paper. It is repetitive,
-it takes time, and different faculty members sometimes map the same question
-differently. The mapping is also needed for Outcome Based Education (OBE)
-documentation, so it cannot be skipped.
-
-## Objective
-
-To investigate whether an AI system that combines **sentence embeddings**,
-**retrieval**, **RAG** and an **LLM** can automatically *suggest* the correct CO
-and Bloom level for a professor-written examination question.
-
-Scope notes:
-
-* The system **does not generate examination questions**. The professor writes them.
-* The system **only suggests**. The professor reviews and can change every suggestion.
-* The AI may only pick a CO from the list the professor entered. It can never
-  invent a new CO.
-
-## Methodology
-
-For each question the pipeline runs these steps.
-
-| Step | What happens |
-|------|--------------|
-| 1 | Every Course Outcome statement is converted into an embedding using `all-mpnet-base-v2`. |
-| 2 | The syllabus is split into paragraph-based chunks of roughly 500-800 characters, and each chunk is embedded. |
-| 3 | The examination question is embedded with the same model. |
-| 4 | Cosine similarity is computed between the question and every CO. This gives a ranking such as `CO1 = 0.46, CO3 = 0.42, CO2 = 0.22`. This ranking is **retrieval evidence, not the final answer**. |
-| 5 | Cosine similarity is computed between the question and every syllabus chunk, and the top 4 chunks are retrieved. |
-| 6 | A prompt is built containing the course name, the question, the marks, all official COs, the CO similarity ranking, the retrieved syllabus chunks and the Revised Bloom's Taxonomy definitions. This is the **RAG** step. |
-| 7 | The LLM (Gemini) is asked to answer with a small JSON object. The first field is `analysis`, so the model states the topic and the reasoning before it commits to a CO and a level. |
-| 8 | The answer is **checked only if it needs checking**. If the LLM chose the same CO that retrieval ranked first and the COs are clearly separated, that single answer is accepted. Otherwise the same prompt is sent again (up to 3 times in total) and the majority answer wins. |
-| 9 | The JSON is parsed and validated. The CO must exist in the entered CO list and the Bloom levels must be within L1-L6. If an answer is unusable the call is retried once; if every run fails the app shows *"Could not classify this question."* and continues with the next question. |
-| 10 | The result is shown in a table where the professor can override the Final CO and Final BL, and export a CSV. |
-
-### Step 8 in detail - asking again only when needed
-
-The professor types each question **once**. The repeated LLM calls are internal,
-and they do not happen on every question:
-
-| Situation | What the system does |
-|-----------|----------------------|
-| The LLM picked the CO that retrieval also ranked first, and that CO wins by a clear margin | accept the answer, **1 LLM call** |
-| The LLM picked a different CO from retrieval, **or** the top two COs are almost equally similar (gap < 0.06) | ask a second time; if the two runs choose the same CO, accept it, **2 LLM calls** |
-| The first two runs disagree | ask a third time and take the majority, **3 LLM calls** |
-
-The first run uses a near-deterministic temperature; the later runs sample, so a
-re-check is a genuine second opinion rather than the same answer repeated.
-
-On the five sample questions this used **7 LLM calls instead of 15**: the three
-clear questions were decided in one call, and only the two where the CO
-similarities were nearly tied (gaps of 0.038 and 0.004) needed a re-check. The
-project still trades speed for accuracy where it matters - a larger embedding
-model, and a second opinion on the uncertain questions - but it does not pay
-that cost on questions that were never in doubt.
-
-### Why retrieval is used instead of similarity alone
-
-Cosine similarity alone can tell which CO statement is *worded* most like the
-question, but it cannot judge the **cognitive level** the question demands. For
-example `"Explain why method A is better than method B"` contains the verb
-*Explain*, yet the actual task is a judgement (L5), not a plain L2 recall of an
-explanation. The prompt explicitly instructs the model not to classify from the
-verb alone.
-
-Retrieval also helps the CO decision. Questions such as *"Discuss how they
-interact with each other in the context of product design with reference to a
-smart television"* do not repeat the wording of any CO, and the CO scores end up
-close together (`CO1 = 0.377, CO3 = 0.312, CO2 = 0.145` in our test run). The
-retrieved syllabus chunk for that question is the Unit 1 text about the Design
-Quality Triangle, which is the context the LLM needs in order to place it
-confidently under CO1. This is the gap the project is investigating.
-
-### Revised Bloom's Taxonomy used
-
-```
-L1 Remember    L2 Understand    L3 Apply
-L4 Analyze     L5 Evaluate      L6 Create
-```
-
-A question may legitimately carry more than one level (for example `L3, L4`),
-because our university papers do use multiple BL values for a single question.
-
-### Confidence
-
-Confidence is reported only as **High / Medium / Low**. No fake percentage is
-produced. It combines two independent pieces of evidence:
-
-*Retrieval evidence* - the gap between the best and second-best CO cosine
-similarity: `>= 0.15` -> High, `>= 0.06` -> Medium, smaller -> Low.
-
-*LLM agreement* - how many of the runs that were actually made chose the same
-CO: all of them -> High, a majority -> Medium, otherwise Low. A question decided
-in a single call counts as full agreement, because it was only allowed to stop
-early when retrieval already agreed with it.
-
-The weaker of the two is taken, and it is lowered one further step if the LLM
-chose a CO that retrieval did not rank first, because then the two sources of
-evidence disagree. A Low row is a signal to the professor to look at that
-question first.
-
-## Architecture
-
-```
-Course details + Course Outcomes + Syllabus + Questions   (entered by the professor)
-                              |
-                              v
-                   sentence-transformers
-                   (all-mpnet-base-v2)
-                              |
-             +----------------+----------------+
-             |                                 |
-   cosine similarity vs COs        cosine similarity vs syllabus chunks
-      (CO ranking)                       (top-4 chunks)
-             |                                 |
-             +----------------+----------------+
-                              v
-                        RAG prompt
-                              |
-                              v
-                        LLM (Gemini)
-                              |
-                              v
-          JSON  {analysis, co, bloom_levels, topic, reason}
-                              |
-                              v
-         validation (CO must exist, BL must be L1-L6, retry once)
-                              |
-                              v
-                   answer clear and agrees
-                     with retrieval?  ---- no ---> ask again (max 3)
-                              |                        |
-                             yes                 majority vote
-                              |                        |
-                              +-----------+------------+
-                                          v
-              result table -> professor edits -> CSV export
-```
-
-### Research methods kept separate
-
-The application always runs Method 3, because it is the most accurate of the
-three. The other two are kept only as **baseline functions** in
-[rag_pipeline.py](rag_pipeline.py) for the comparison chapter of the report;
-they are not offered in the interface, so the professor is never asked to pick
-an algorithm:
-
-| Function | Method |
-|----------|--------|
-| `predict_co_similarity()` | Method 1 - cosine similarity only, no LLM. Predicts CO only, cannot predict a Bloom level. |
-| `predict_llm_only()` | Method 2 - LLM with the COs but **without** the retrieved syllabus context and without the similarity ranking. |
-| `predict_rag_llm()` | Method 3 - retrieval + LLM, with a second opinion only on uncertain questions. **This is what the application uses.** |
-
-To evaluate the baselines later, call the functions directly from a small
-script; no change to `app.py` is needed.
-
-## Technology used
-
-| Component | Choice |
-|-----------|--------|
-| UI | Streamlit (one page) |
-| Embeddings | `sentence-transformers`, `all-MiniLM-L6-v2` by default (384 dims), `all-mpnet-base-v2` optional (768 dims) |
-| Similarity | `scikit-learn` cosine similarity |
-| LLM | Gemini (`gemini-3.5-flash-lite`) through its REST API using `requests` |
-| PDF text | PyMuPDF |
-| DOCX text | python-docx |
-| Tables / CSV | pandas |
-
-No vector database is used. The project handles a few COs and a few syllabus
-chunks per course, so a plain NumPy matrix with cosine similarity is both
-sufficient and easier to explain. A vector database would add infrastructure
-without adding accuracy at this scale.
-
-## Files
-
-```
-CO_mapping__RP/
-├── app.py                            Streamlit single page application
-├── rag_pipeline.py                   embeddings, retrieval, RAG prompt, LLM call, validation
-├── document_utils.py                 PDF / DOCX / TXT text extraction
-├── .streamlit/config.toml            forces the plain white theme
-├── .streamlit/secrets.toml.example   settings template for Streamlit Cloud
-├── requirements.txt
-├── .env.example
-├── .gitignore                        keeps .env and secrets.toml out of git
-├── demo/                             sample files for the review demo
-│   ├── DEMO_DATA.md                  course details, COs and reference labels
-│   ├── ID2103_syllabus.pdf           syllabus as PDF
-│   ├── ID2103_question_paper.docx    question paper as DOCX
-│   ├── CS2201_syllabus.docx          a second course, syllabus as DOCX
-│   └── CS2201_question_paper.pdf     a second course, paper as PDF
-└── README.md
-```
-
-## Installation
-
-```bash
-pip install -r requirements.txt
-```
-
-The first run downloads the `all-mpnet-base-v2` model (about 420 MB)
-automatically and caches it, so the first start is slow and needs an internet
-connection. Later runs load it from the cache.
-
-## API key configuration
-
-1. Get a free Gemini API key from <https://aistudio.google.com/apikey>.
-2. Copy `.env.example` to `.env`:
-
-```bash
-copy .env.example .env
-```
-
-3. Open `.env` and put your key in:
-
-```
-GEMINI_API_KEY=your_api_key_here
-GEMINI_MODEL=gemini-3.5-flash-lite
-```
-
-**Free tier quota matters.** The Gemini free tier limits requests *per model,
-per day* - on the full `flash` models this can be as low as **20 requests per
-day**, which is only about three demo runs. The `-lite` models have a much
-larger allowance, which is why `gemini-3.5-flash-lite` is the default. If you
-see the message *"the free tier daily quota is used up"*, either wait for the
-reset or change `GEMINI_MODEL` in `.env` to another model id, since each model
-has its own separate daily allowance.
-
-If no `.env` file is present, the app shows a password box in the sidebar where
-the key can be pasted for that session instead.
-
-## Run command
-
-```bash
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
 streamlit run app.py
 ```
 
-The app opens at <http://localhost:8501>.
+Open the local address printed by Streamlit, normally `http://localhost:8501`.
+Embeddings load only when required. The first embedding operation may download
+the configured sentence-transformer model and requires network access.
 
-## Example input
+## Configuration
 
-Press **"Load sample course data"** in the sidebar to fill in the test course,
-or use the ready made files in the `demo/` folder to show the PDF and DOCX
-upload as well. `demo/DEMO_DATA.md` lists the Course Outcomes to copy and the
-reference labels to check the output against.
+For local use, copy `.env.example` to `.env` and set your own key. The app reads
+Streamlit Secrets first, then environment variables populated from `.env`:
 
-Course: `ID2103 - Art & Aesthetics in Design`
-
-```
-CO1: Explain fundamental concepts and principles related to art, aesthetics and design quality.
-CO2: Interpret and evaluate art in relation to identity, emotion and individual human experience.
-CO3: Analyze the relationship between art, design, society and everyday life.
+```dotenv
+GEMINI_API_KEY=your_key_here
+GEMINI_MODEL=gemini-3.5-flash-lite
+EMBEDDING_MODEL=all-MiniLM-L6-v2
 ```
 
-Question `1(a)`, 3 marks:
+`GOOGLE_API_KEY` is also accepted. Model IDs remain configurable; availability
+and quota depend on your provider account. API credentials, model settings and
+retrieval controls are under **Advanced Settings**. Without a saved key, a
+password input supports the current session. Retrieval settings are displayed;
+model names are configured at deployment rather than changed per session.
+Manual preparation, editing,
+validation and exports do not require Gemini.
 
-```
-Explain the three primary components of the Design Quality Triangle.
-```
+Never commit `.env` or `.streamlit/secrets.toml`. Keep real credentials out of
+course text and project files. JSON export excludes credentials, transient
+objects and embedding caches. Secrets filename is `secrets.toml` (plural);
+`config.yaml` is not a Streamlit secrets source.
 
-## Expected type of output
+## One-click presentation demo
 
-The LLM returns a small JSON object:
+Click **Load presentation demo** in the sidebar to fill all six workspace sections
+and open a ready-to-present paper preview. No API key, model download or network
+generation is needed. It includes:
 
-```json
-{
-  "analysis": "The question asks for the three components of the Design Quality Triangle, which Unit 1 covers. That is a fundamental design concept, so it belongs to CO1. The student has to describe the components in their own words.",
-  "co": "CO1",
-  "bloom_levels": ["L2"],
-  "topic": "Design Quality Triangle",
-  "reason": "The question tests understanding of a fundamental design concept."
-}
-```
+- ID2103 Art & Aesthetics in Design, course metadata and three syllabus modules.
+- Three staged approved COs and one draft to demonstrate individual review.
+- Eleven illustrative POs, two PSOs, and a matrix with positive and unmapped
+  relationships plus a staged professor override.
+- Seven prepared question-analysis examples, including a final-label correction.
+- A 30-mark paper containing six 5-mark questions, locked approved examples,
+  two review items, syllabus quotations and draft answer/marking guides.
+- Student/faculty PDF and DOCX export, CSV exports and project JSON saving.
 
-The `analysis` field is the model's reasoning step. It is not shown in the
-result table; only `co`, `bloom_levels`, `topic` and `reason` are displayed.
+All example suggestions and approvals are labelled as prepared demonstration data.
+No classification accuracy, cosine similarity, measured confidence, official PO
+wording or live AI execution is implied. Demo paper exports carry a demonstration
+label. Normal generation/checking actions still require the configured models and
+API key when explicitly requested.
 
-and for a question that needs two cognitive steps:
+**Restore previous work** returns to the project active before loading the demo;
+reloading the demo does not overwrite that original in-session snapshot. Download
+project JSON to retain work across browser/server sessions. The separate
+**Load ID2103 sample course** action retains the original input-only research
+sample and its manual outcome-approval workflow.
+The ready-filled snapshot is also available at
+`demo/ID2103_presentation_demo.json` for reuse through **Restore a saved project**.
 
-```json
-{
-  "analysis": "...",
-  "co": "CO1",
-  "bloom_levels": ["L3", "L4"],
-  "topic": "Design Quality Triangle",
-  "reason": "The student must apply the concept to a product and analyse how its components relate."
-}
-```
+## Faculty workflow
 
-This is displayed as a table with the columns *Question, Marks, Suggested CO,
-Suggested BL, Topic, Confidence, Reason, Final CO, Final BL*. The last two
-columns are editable by the professor, and the CSV export contains:
+1. **Course & Syllabus**: enter the subject / course name and optional code and department/programme details,
+   paste text or extract PDF/DOCX/TXT, then review editable module/topic portions.
+   Heading detection supports any number of modules. You can correct headings
+   and their source text. Empty extraction warns instead of implying OCR support.
+2. **Course Outcomes**: enter outcomes manually or explicitly request syllabus-
+   grounded drafts (five by default). Review Bloom suggestions, rationale and
+   real syllabus references. Edit, add, remove, regenerate and approve individual
+   drafts. Drafts stay separate from the approved set. Replacing an existing
+   approved outcome requires a deliberate professor action.
+3. **CO–PO / PSO Mapping**: configure reusable PO1–PO11 and departmental PSOs
+   (initially PSO1/PSO2). Statements start empty because official institution
+   wording has not been supplied. Enter meaningful statements and approve them
+   before requesting corresponding AI mappings. Import/export configuration for
+   reuse. Inspect suggested scores and justifications, edit final scores and
+   approve/reject relationships. An unreviewed blank differs from approved 0
+   (no demonstrated relationship). The scale is 0/—, 1 low, 2 medium, 3 high.
+4. **Analyse Existing Questions**: enter question numbers, text and marks, or use
+   uploaded-paper extraction as a copying aid. Run the existing RAG pipeline
+   explicitly, inspect CO cosine similarities, retrieved evidence, confidence
+   and LLM-run details, then correct final CO/Bloom labels and approve. Multiple
+   Bloom levels are supported. Edits live in authoritative project state and
+   survive navigation and reruns. Changed questions flag previous labels for
+   review; approved CSV export validates final identifiers.
+5. **Build Question Paper**: enter or confirm **Subject / course name** at the
+   top of the page. The subject is shared with Course & Syllabus; use the direct
+   setup buttons to add its syllabus and prepare or approve its outcomes.
+   **CO means Course Outcome**, the skill students should demonstrate after
+   studying the subject. Under **Course outcomes to assess**, select approved
+   outcomes by their IDs and full statements, or explicitly choose all approved
+   outcomes. Draft outcomes are never selected or approved automatically.
+   The setup checklist explains missing inputs before AI generation is enabled.
+   Acknowledging a marks mismatch confirms the structure; it does not complete
+   subject setup. Then choose Mid-semester, End-semester or Custom, edit
+   metadata, target total, covered portions, approved COs, Bloom targets and
+   difficulty. Add/reorder sections and set counts/marks. Advanced section
+   controls reveal any-K-of-N, adjacent either/or pairs, unequal marks and
+   subquestions. Review marks before explicitly generating. Edit generated items,
+   approve/lock them, manually replace failures or regenerate one unlocked item.
+   Successful batches remain saved after partial failures. **Check generated
+   questions** explicitly runs the original mapping pipeline; its suggestions
+   stay separate from requested targets and professor final decisions.
+6. **Review & Export**: inspect the paper, choice rules, actual attemptable marks
+   and coverage, then download student/faculty PDF or editable DOCX, matrix and
+   analysis CSV, or a JSON project snapshot. Student files exclude internal
+   evidence, rationale, CO/Bloom labels and answer keys. Faculty files include
+   review details; optional answers and marking guides are labelled drafts.
 
-```
-Question Number, Question, Marks, Final CO, Final Bloom Level
-```
+Backwards navigation preserves work. Session state lasts only as long as the
+Streamlit session: **download project JSON to save work across sessions**, then
+import it to restore. Imports validate the schema version, identifiers, references
+and values. Source fingerprints flag affected downstream material for review
+without silently discarding it. Review and reapprove stale material before use.
+Changed and removed sources remain in the project's source history, so existing
+quotations can still be inspected after a syllabus or outcome revision. Archived
+sources cannot become new generation targets. Save structured tables and question
+forms with their labelled buttons before leaving a section. Final analysis label
+corrections save automatically in session memory; approval remains explicit.
 
-Note: these are the *type* of output expected. The actual values always come
-from the pipeline at run time. No expected answer is hardcoded anywhere in the
-code.
+## Marks and professor overrides
 
-## Results actually observed
+Marks are calculated in Python. For an equal-mark section:
 
-A live run on the ID2103 demo paper (7 questions covering all six Bloom levels,
-`gemini-3.5-flash-lite`, `all-mpnet-base-v2`) gave:
-
-| | Result |
+| Quantity | Calculation |
 |---|---|
-| Course Outcome agreement with the reference labels | **7 of 7** |
-| Bloom level agreement | partial - see below |
-| LLM calls used | 10 (not 21: the clear questions were decided in a single call) |
-| Wall clock | about 55 seconds |
+| Printed marks | Printed question count × marks per question |
+| Attemptable marks | Required attempts × marks per question |
+| Either/or pair | One alternative contributes to attemptable total |
+| Subquestions | Children must add to their parent total |
 
-The two extreme levels were handled correctly: the plain recall question was
-classified `L1`, and the "propose an installation and justify it" question was
-classified `L5, L6`.
+Any-K choices with unequal marks, or unequal either/or alternatives, retain the
+minimum–maximum possible attemptable range. The application explains that the
+student's choices affect the total; it does not report one misleading maximum.
 
-The Bloom levels were close but not exact. The system tended to add an extra
-`L2` alongside the correct higher level, for example predicting `L2, L5` where
-the reference label was `L5`, and predicting `L2` where the reference was
-`L3, L4`. The higher level was usually present; the extra `L2` came from the
-surface verb ("Explain", "Discuss") that the question happens to open with.
+The target is a faculty reference. For example, target 30 with five compulsory
+5-mark questions prints and permits 25 marks. The workspace warns and offers
+**Edit blueprint** or **Continue with this blueprint**. Continuing acknowledges
+that exact blueprint, allows generation of five questions and prints actual
+maximum 25 on the paper. It never silently adds questions or changes marks.
+Six printed 5-mark questions with any five attempted print 30 marks but permit
+25 marks. Four compulsory 10-mark questions permit 40 despite a target of 30.
 
-For comparison, the larger `gemini-3.5-flash` performed **worse** on the same
-five questions (4 of 5 COs, one question failing to classify at all) and took
-76 seconds, which is why the lite model is the default. This is a single
-five-question run and should be read as an illustration, not as a measured
-accuracy figure.
+Relevant blueprint changes invalidate the acknowledgment and require review
+again. Overrides cannot bypass structural errors such as nonpositive marks,
+invalid counts, attempts exceeding printed questions, malformed either/or groups
+or subquestions whose marks do not add to the parent.
 
-## Deploying to Streamlit Community Cloud
+## AI and research methods
 
-The repository is already prepared for it. Three things matter on the free tier.
+The Gemini REST request layer, configurable models, sentence-transformer
+retrieval and confidence rules remain in `rag_pipeline.py`. Existing baselines
+keep their separate APIs:
 
-**Memory.** The free tier gives roughly 1 GB of RAM. Measured usage after the
-model loads:
-
-| Embedding model | RAM | Fits the free tier |
-|---|---|---|
-| `all-MiniLM-L6-v2` | about 500 MB | yes - this is the default |
-| `all-mpnet-base-v2` | about 800 MB | risky, likely to be killed |
-
-`all-MiniLM-L6-v2` is the default for this reason. On the sample course it still
-agreed with all five reference COs, so the smaller model is not a real loss for
-the CO half of the task.
-
-**Torch size.** On Linux, plain `pip install torch` pulls the CUDA build, which
-is far too large for the build step. `requirements.txt` therefore starts with
-
-```
---extra-index-url https://download.pytorch.org/whl/cpu
-torch
-```
-
-which installs the CPU-only build instead. Do not delete those two lines.
-
-**The API key.** It must never be committed. `.gitignore` excludes `.env` and
-`.streamlit/secrets.toml`; on the cloud the key is supplied through the app's
-Secrets box instead.
-
-### Steps
-
-1. Create an empty repository on GitHub (for example `co-bloom-rp`). Do not add
-   a README, since this project already has one.
-
-2. Push this project to it:
-
-   ```bash
-   git remote add origin https://github.com/<your-username>/co-bloom-rp.git
-   git push -u origin main
-   ```
-
-3. Go to <https://share.streamlit.io>, sign in with GitHub and choose
-   **Create app -> Deploy a public app from GitHub**. Select the repository,
-   branch `main`, and main file path `app.py`.
-
-4. Open **Advanced settings -> Secrets** before deploying and paste:
-
-   ```toml
-   GEMINI_API_KEY = "your_api_key_here"
-   GEMINI_MODEL = "gemini-3.5-flash-lite"
-   EMBEDDING_MODEL = "all-MiniLM-L6-v2"
-   ```
-
-   The same keys are listed in `.streamlit/secrets.toml.example`.
-
-5. Deploy. The first build takes several minutes because torch and the embedding
-   model have to be downloaded. Later restarts are much faster.
-
-The app reads its settings through `get_setting()` in `app.py`, which checks
-Streamlit Secrets first and falls back to the `.env` file, so the same code runs
-unchanged on a laptop and on the cloud.
-
-### If the deployed app fails
-
-| Symptom | Cause and fix |
+| Function | Role |
 |---|---|
-| The build runs out of space or takes very long | the CPU-only torch lines were removed from `requirements.txt` |
-| The app restarts as soon as a question is analysed | out of memory - make sure `EMBEDDING_MODEL` is `all-MiniLM-L6-v2` |
-| "the free tier daily quota is used up" | change `GEMINI_MODEL` in Secrets to another model id; each model has its own daily allowance |
-| The sidebar asks for an API key | the Secrets box is empty or misspelled |
+| `predict_co_similarity()` | Embedding similarity baseline; CO only |
+| `predict_llm_only()` | LLM baseline without retrieved syllabus context |
+| `predict_rag_llm()` | CO/Bloom analysis with retrieval and conditional repeated classification |
 
-The app accepts `GEMINI_API_KEY` or `GOOGLE_API_KEY`. Locally, the secrets
-filename must be `.streamlit/secrets.toml` (plural); `secret.toml` and
-`config.yaml` are not loaded as Streamlit secrets. Your local `.env` and
-secrets file are not uploaded by a Git push. For an existing deployment, open
-the app's **Settings -> Secrets**, paste the contents of your local
-`.streamlit/secrets.toml`, and save. Keep real keys out of GitHub.
+Classification selects only from the supplied valid CO list. CO drafting is a
+separate explicit task. The RAG classifier normally asks once, requests another
+opinion when retrieval disagrees or CO similarities are close, and uses at most
+three classification runs. Confidence is High/Medium/Low, using retrieval gap
+and agreement; agreement does not prove correctness.
 
-To check API configuration without calling Gemini or loading embeddings:
+CO drafting, matrix suggestions and paper generation use distinct JSON tasks,
+bounded malformed-output retries and Python validation. Counts, marks, CO IDs,
+Bloom labels and existing module/quotation references are checked. AI calls occur
+only through explicit actions. Unavailable credentials, authentication, quota,
+network errors and timeouts preserve work and report failures. No fabricated AI
+fallback is substituted. Uploaded documents are reference data, not instructions
+that may override application rules. Embedding caches are scoped to the session
+and keyed by model identity/content; reusable model objects contain no course data.
 
-```bash
+## Exports and coverage
+
+PDF and DOCX use the same ordered current-paper content and deterministic marks.
+Long questions wrap through pages; PDF includes page numbers. DOCX uses A4,
+fixed margins, headings that stay with following content and free-flowing question
+paragraphs. The current blueprint determines numbering, alternatives and subquestion
+marks. Obsolete retained question slots are excluded from the current paper.
+
+Coverage distinguishes printed marks from the minimum marks guaranteed under
+attempt rules. Optional questions do not imply that each student attempts every
+printed CO/module/Bloom level. Multi-label coverage overlaps and is not student
+attainment. Mapping exports preserve original AI suggestions separately from
+approved final scores. Blank matrix values mean unapproved; explicit 0 means an
+approved absence of demonstrated relationship. CSV spreadsheet-formula prefixes
+are escaped as text.
+
+`demo/exports/` contains synthetic long-paper PDF/DOCX QA samples, all-page and
+first/middle/last contact sheets, long-URL stress files and an inspection note.
+Recreate them with:
+
+```powershell
+python demo/create_export_samples.py
+```
+
+## Verification
+
+```powershell
+python -m compileall -q app.py ui_workspace.py project_state.py validation.py outcome_service.py paper_service.py export_utils.py
 python -m unittest discover -s tests -v
 ```
 
+Tests mock Gemini and cover configuration, structural marks, mismatch overrides,
+dependency review, JSON round trips, malformed AI output, partial generation,
+authoritative professor edits and PDF/DOCX content separation/wrapping. They do
+not establish live model quality or research accuracy. The export geometry checks
+inspect PDF text bounds and extract the final questions from multi-page documents.
+DOCX structure is inspected with python-docx; visual Word pagination requires a
+working desktop renderer and remains an environment-dependent manual check.
+
+Use **Load ID2103 sample course** to exercise ID2103. Existing syllabus and paper
+uploads remain in `demo/`; sample input is illustrative and not official PO/PSO
+wording. A complete manual workflow is possible without a live Gemini key.
+
+## Files
+
+| File | Responsibility |
+|---|---|
+| `app.py` | Six-section Streamlit faculty workspace |
+| `ui_workspace.py` | Course, outcome, matrix, analysis, blueprint, preview and review controls |
+| `project_state.py` | Serializable schema, stable IDs, source dependencies, safe JSON import/export |
+| `validation.py` | Marks, choice structures, identifiers and accepted-value validation |
+| `outcome_service.py` | Syllabus-grounded CO drafts and matrix suggestions |
+| `paper_service.py` | Batched questions, regeneration, duplicate checks, explicit analysis |
+| `export_utils.py` | Student/faculty PDF/DOCX, CSV and choice-aware coverage |
+| `rag_pipeline.py` | Original embeddings, retrieval, Gemini classification and research baselines |
+| `document_utils.py` | PDF/DOCX/TXT extraction |
+| `sample_data.py` | ID2103 illustrative inputs |
+| `demo_project.py` | Complete, clearly labelled presentation fixtures without AI calls |
+| `tests/` | Focused automated checks with mocked APIs |
+
+## Streamlit Community Cloud
+
+Deploy the GitHub repository `Gupta-027/RP_Project-`, branch `main`, with entrypoint
+`app.py`. The deployment includes the complete workspace and the **Load presentation
+demo** action. Choose Python 3.13 for a new deployment to match the tested local
+runtime, or preserve an existing supported runtime when updating an existing app.
+
+For an existing Community Cloud app linked to this branch, pushing the repository
+update triggers its redeployment. For a new app, sign in at
+<https://share.streamlit.io>, choose **Create app**, select the repository, branch
+and entrypoint above, then choose **Deploy**. The public URL is assigned by
+Streamlit; localhost preview URLs are not public deployments.
+
+Configure model names and API keys in the app's **Settings → Secrets**, using
+`GEMINI_API_KEY` (or `GOOGLE_API_KEY`), optional `GEMINI_MODEL`, and optional
+`EMBEDDING_MODEL`. Existing cloud secrets should remain in the hosting account.
+The presentation demo and manual preparation/export workflow work without a key;
+live AI actions require a valid key and provider access. Local `.env` and secrets
+files must never be uploaded to GitHub.
+
+Deploy `app.py` with `requirements.txt`. The verified Streamlit release is pinned
+to keep the hosted widget behavior consistent. Keep the CPU-oriented torch installation settings
+for lightweight deployment. The smaller default embedding model avoids requiring
+GPU infrastructure. No database or additional export service is required.
+
 ## Limitations
 
-1. CO statements are written differently in every course, so the quality of the
-   suggestion depends heavily on how precisely the COs are worded.
-2. CO and Bloom classification is partly subjective. Two faculty members can
-   reasonably assign different levels to the same question.
-3. A single question can validly belong to more than one Bloom level, so a single
-   "correct answer" does not always exist, and accuracy is harder to define.
-4. The LLM output is a suggestion only. Faculty validation is required, and the
-   application is designed around that assumption.
-5. Results depend on the quality and completeness of the syllabus text. A short
-   or badly extracted syllabus weakens the retrieval step.
-6. The evaluation set in this project is very small (one course, five questions),
-   so no statistical conclusion can be drawn from it. It only demonstrates that
-   the pipeline works.
-7. Automatic extraction of individual questions from a question paper PDF is not
-   reliable, so manual entry is the primary input method. Upload is provided only
-   as a text-extraction aid.
-8. Cosine similarity with `all-mpnet-base-v2` is computed on general-purpose
-   embeddings that were not trained on education or OBE text.
-9. Asking the LLM again reduces random variation but does not remove it. Two or
-   three runs can still agree on the same wrong answer, so agreement is not
-   proof of correctness.
-10. The rule that decides when to ask again uses a fixed similarity gap of 0.06,
-    chosen by inspection of the sample course rather than by tuning on a
-    labelled dataset. A question the system judged "clear" can still be wrong.
-11. Course Outcome prediction was noticeably more reliable than Bloom level
-    prediction in our runs. The Bloom level is the harder half of the problem,
-    and the system still leans on the opening verb more than it should despite
-    the prompt instructing otherwise.
-12. The project depends on a third party API with a free tier daily quota. If
-    the quota is exhausted the app reports it clearly and stops rather than
-    retrying, but no classification is possible until the quota resets.
-
-## Future scope
-
-* Collect a larger labelled dataset of questions with faculty-approved CO and BL
-  values, and report accuracy for Method 1, Method 2 and Method 3 on it.
-* Measure agreement between two faculty members on the same set of questions, to
-  establish a human baseline the system can be compared against.
-* Try a domain-adapted or fine-tuned embedding model instead of a
-  general-purpose one.
-* Improve automatic question extraction from question-paper files.
-* Let the professor's corrections be stored and used as few-shot examples in the
-  prompt, so the system adapts to how a particular department maps questions.
+- AI output requires professor review. It may be incomplete, unsuitable in scope
+  or wrong even when retrieved evidence and repeated runs agree.
+- PDF extraction handles embedded text. Scanned/image-only files need external
+  OCR; this application does not implement OCR. Question splitting remains manual.
+- Heading detection is heuristic. Review module boundaries and ensure quoted
+  source text actually belongs to the syllabus.
+- Duplicate detection flags exact and likely similarities; it cannot prove two
+  questions assess the same skill or detect every paraphrase.
+- Generated numerical/scenario questions and draft marking guides still require
+  faculty verification for solvability, fairness and mark allocation.
+- JSON snapshots provide explicit local saving, without accounts, shared editing
+  or a durable server database. Keep downloaded research/course data appropriately.
+- Provider model availability, quotas and network access can change. Automated
+  checks use mocks; a live Gemini end-to-end run is a separate verification step.
+- Custom institution layouts may need further formatting. Inspect exported files
+  in your actual PDF viewer and DOCX editor before distributing a paper.

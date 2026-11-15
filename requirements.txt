@@ -3,7 +3,8 @@
 --extra-index-url https://download.pytorch.org/whl/cpu
 torch
 
-streamlit>=1.50
+# Pin the Streamlit release used by the verified workspace and presentation demo.
+streamlit==1.58.0
 sentence-transformers
 scikit-learn
 numpy
