@@ -2,10 +2,10 @@
 [theme]
 base = "light"
 backgroundColor = "#FFFFFF"
-secondaryBackgroundColor = "#FFFFFF"
-textColor = "#1A1A1A"
+secondaryBackgroundColor = "#F4F7FC"
+textColor = "#14283E"
 primaryColor = "#2A6BD4"
-borderColor = "#DDDDDD"
+borderColor = "#E1E7EF"
 showSidebarBorder = true
 
 [server]

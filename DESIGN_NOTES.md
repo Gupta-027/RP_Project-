@@ -22,6 +22,37 @@ Reject decorative imagery, gradients, unreadable muted text, CSS overrides of
 Streamlit internals, and colour-only status. No custom frontend assets are needed.
 Visual QA must be reported separately from Streamlit AppTest interaction checks.
 
+## Institutional opening-page reference lock
+
+The requested project cover and the existing white/blue Streamlit theme are the
+direct-build target. Live Refero research remains unavailable (`NO_SUBSCRIPTION`);
+the installed typography and craft/accessibility references guide this extension.
+The authentic emblem comes from the NIT Rourkela website, unchanged. The student,
+roll number and supervisor information is supplied explicitly by the user.
+
+| Decision | Reference / role | Reason |
+| --- | --- | --- |
+| Official emblem with institute and department lockup | NIT Rourkela official site and supplied affiliation | Make the institutional context visible before the project introduction. |
+| Dark navy project title on a pale blue academic cover | Existing white/blue theme; Refero typography guide | Establish a readable heading and clear visual hierarchy without a decorative font. |
+| Presented-by and supervisor details in equal information panels | User's requested project-cover content | Show Gupta Prasad Adhikari, 123ID0885 and Prof. B.B.V.L. Deepak on first arrival. |
+| Project overview as the initial route, followed by the existing six sections | User's requested opening experience | Keep the introduction visible to new visitors and preserve free workspace navigation. |
+| Hover/focus treatment with native buttons on six module cards | Refero focus/forms guide; existing workspace navigation | Provide pointer feedback while retaining keyboard access and saved project state. |
+
+Tokens: white canvas; #F4F7FC cover/field surface; #14283E text; #52647A secondary
+text; existing #2A6BD4 action accent; #E1E7EF borders; restrained 12–18px radii.
+Only owned HTML classes and Streamlit's documented container-key classes are
+styled. Keep emblem colours, native focus rings, and reduced-motion preferences.
+Reject gradients, fabricated research metrics, automatic hover navigation and
+changes to student/faculty paper export content for this introduction-only work.
+
+Verification: all 99 tests pass, including first-visit content, all six module
+launchers, preservation of saved course data, and restoring the overview after
+loading the presentation demo. Chrome checks at 1440 × 1000 and 390 × 844 confirmed
+the bundled emblem loads, the module border changes on hover, every module opens,
+and there are no application/runtime exceptions or mobile horizontal overflow.
+Desktop and mobile cover/module screenshots were inspected against this lock;
+evidence is stored in `.tmp/qa/21–24` and `overview-report.json`.
+
 ## Real-browser verification
 
 On 16 November 2026, the app was inspected in local headless Chrome through the

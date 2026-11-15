@@ -17,6 +17,7 @@ from export_utils import analysis_csv
 from project_state import (export_project, import_project, new_project,
                            refresh_dependencies)
 from ui_workspace import PAGES
+from ui_home import HOME_PAGE, PROJECT_TITLE, LOGO_PATH
 
 
 APP = Path(__file__).resolve().parents[1] / "app.py"
@@ -75,6 +76,47 @@ class WorkspaceInteractionTests(unittest.TestCase):
     def press(self, app, label):
         control(app.button, label).click().run(timeout=20)
         self.assertEqual(len(app.exception), 0, [str(error.value) for error in app.exception])
+
+    def test_first_visit_shows_institutional_project_cover_and_requested_details(self):
+        app = self.start()
+        self.assertEqual(control(app.radio, "Workspace").value, HOME_PAGE)
+        self.assertEqual(app.title[0].value, PROJECT_TITLE)
+        content = " ".join(element.value for element in app.markdown)
+        for detail in ("National Institute of Technology Rourkela", "Department of Industrial Design",
+                       "Gupta Prasad Adhikari", "123ID0885", "Prof. B.B.V.L. Deepak", "UNDER THE GUIDANCE OF"):
+            self.assertIn(detail, content)
+        self.assertIn('alt="National Institute of Technology Rourkela emblem"', content)
+        self.assertIn("data:image/png;base64,", content)
+        self.assertTrue(LOGO_PATH.read_bytes().startswith(b"\x89PNG"))
+        self.assertEqual(len([button for button in app.button if str(button.key).startswith("overview_open_")]), 6)
+
+    def test_overview_module_buttons_keep_existing_work_and_navigation_free(self):
+        app = self.start(new_course_fixture())
+        previous = deepcopy(app.session_state.project)
+        for index, page in enumerate(PAGES):
+            next(button for button in app.button if button.key == f"overview_open_{index}").click().run(timeout=20)
+            self.assertEqual(len(app.exception), 0)
+            self.assertEqual(app.title[0].value, page)
+            self.assertEqual(app.session_state.project["id"], previous["id"])
+            self.assertEqual(app.session_state.project["course"], previous["course"])
+            self.assertEqual(app.session_state.project["approved_cos"], previous["approved_cos"])
+            control(app.radio, "Workspace").set_value(HOME_PAGE).run(timeout=20)
+            self.assertEqual(app.title[0].value, PROJECT_TITLE)
+        self.press(app, "Enter faculty workspace")
+        self.assertEqual(app.title[0].value, "Course & Syllabus")
+
+    def test_overview_demo_action_restores_the_overview_and_previous_project(self):
+        app = self.start(new_course_fixture())
+        previous = deepcopy(app.session_state.project)
+        next(button for button in app.button if button.key == "overview_demo").click().run(timeout=20)
+        self.assertEqual(len(app.exception), 0)
+        self.assertEqual(app.title[0].value, "Review & Export")
+        self.assertTrue(app.session_state.project["presentation_demo"])
+        self.press(app, "Restore previous work")
+        self.assertEqual(control(app.radio, "Workspace").value, HOME_PAGE)
+        self.assertEqual(app.title[0].value, PROJECT_TITLE)
+        self.assertEqual(app.session_state.project["id"], previous["id"])
+        self.assertEqual(app.session_state.project["blueprint"], previous["blueprint"])
 
     def test_id2103_sample_all_workspace_sections_and_manual_approval(self):
         app = self.start()

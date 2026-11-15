@@ -5,11 +5,13 @@ import streamlit as st
 from dotenv import load_dotenv
 import rag_pipeline as rag
 from project_state import new_project, refresh_dependencies, export_project, import_project
-from ui_workspace import PAGES, render_page, load_demo
+from ui_workspace import PAGES, render_page, load_demo, navigate_to
 from demo_project import build_presentation_demo
+from ui_home import HOME_PAGE, PROJECT_TITLE, LOGO_PATH, render_home
 
 load_dotenv()
-st.set_page_config(page_title="Course Outcomes & Assessment Studio", page_icon="📘", layout="wide")
+st.set_page_config(page_title=PROJECT_TITLE + " | NIT Rourkela", page_icon=str(LOGO_PATH), layout="wide")
+NAV_PAGES = [HOME_PAGE, *PAGES]
 
 
 def get_setting(name, default=""):
@@ -27,6 +29,7 @@ rag.GEMINI_MODEL = get_setting("GEMINI_MODEL", rag.GEMINI_MODEL)
 rag.EMBEDDING_MODEL_NAME = get_setting("EMBEDDING_MODEL", rag.EMBEDDING_MODEL_NAME)
 st.session_state.setdefault("project", new_project())
 st.session_state.setdefault("ui_epoch", 0)
+st.session_state.setdefault("workspace_page", HOME_PAGE)
 
 
 def replace_project(project):
@@ -42,7 +45,7 @@ def load_presentation_project():
     previous = st.session_state.project
     if not previous.get("presentation_demo"):
         st.session_state.work_before_demo = deepcopy(previous)
-        st.session_state.page_before_demo = st.session_state.get("workspace_page", PAGES[0])
+        st.session_state.page_before_demo = st.session_state.get("workspace_page", HOME_PAGE)
     replace_project(build_presentation_demo())
     st.session_state.workspace_page = PAGES[5]
 
@@ -51,8 +54,8 @@ def restore_work_before_demo():
     previous = st.session_state.pop("work_before_demo", None)
     if previous is not None:
         replace_project(previous)
-        previous_page = st.session_state.pop("page_before_demo", PAGES[0])
-        st.session_state.workspace_page = previous_page if previous_page in PAGES else PAGES[0]
+        previous_page = st.session_state.pop("page_before_demo", HOME_PAGE)
+        st.session_state.workspace_page = previous_page if previous_page in NAV_PAGES else HOME_PAGE
 
 
 def show_course_context(placeholder, project):
@@ -62,16 +65,17 @@ def show_course_context(placeholder, project):
 
 
 with st.sidebar:
+    st.caption("NIT ROURKELA · INDUSTRIAL DESIGN")
     st.subheader("Assessment Studio")
     p = st.session_state.project
     course_context = st.empty()
     show_course_context(course_context, p)
-    page = st.radio("Workspace", PAGES, key="workspace_page")
+    page = st.radio("Workspace", NAV_PAGES, key="workspace_page")
     st.divider()
     ready = sum(c.get("status") == "approved" for c in p["approved_cos"])
     pending = sum(q.get("status") != "approved" for q in p["paper_questions"])
     st.caption(f"{len(p['modules'])} modules · {ready} approved COs\n\n{pending} paper items need review")
-    st.button("Load presentation demo", type="primary", width="stretch", on_click=load_presentation_project,
+    st.button("Load presentation demo", type="secondary" if page == HOME_PAGE else "primary", width="stretch", on_click=load_presentation_project,
         help="Fills all six sections, opens a complete paper preview, and keeps your current project for Restore previous work.")
     st.caption("Complete 30-mark sample paper. No API key needed.")
     if "work_before_demo" in st.session_state:
@@ -104,9 +108,10 @@ with st.sidebar:
         st.caption("Configure GEMINI_MODEL and EMBEDDING_MODEL through .env or Streamlit Secrets. Models load only when an explicit action needs them.")
     st.caption("Download project JSON to save across sessions. Session memory is temporary.")
 
-st.caption("COURSE OUTCOMES & ASSESSMENT STUDIO")
+if page != HOME_PAGE:
+    st.caption("NIT ROURKELA · COURSE OUTCOMES & ASSESSMENT STUDIO")
 p = st.session_state.project
-if p.get("presentation_demo"):
+if p.get("presentation_demo") and page != HOME_PAGE:
     st.info("Presentation demo: prewritten examples with staged approvals and suggestions. The pre-filled data was prepared without live AI calls. PO/PSO wording is illustrative, not official.")
     with st.expander("Suggested presentation tour"):
         st.markdown("1. Show the subject and three syllabus modules in **Course & Syllabus**.\n"
@@ -116,7 +121,10 @@ if p.get("presentation_demo"):
                     "5. In **Build Question Paper**, review six 5-mark questions, locked items, a disagreement and a draft marking guide. Change the printed count to five to demonstrate the 25-versus-30 marks warning.\n"
                     "6. Return to **Review & Export** to prepare student/faculty PDF and DOCX files.")
 refresh_dependencies(p)
-render_page(page, p, api_key)
+if page == HOME_PAGE:
+    render_home(p, PAGES, navigate_to, load_presentation_project)
+else:
+    render_page(page, p, api_key)
 refresh_dependencies(p)
 show_course_context(course_context, p)
 with project_download:

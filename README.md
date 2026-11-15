@@ -6,6 +6,27 @@ This Industrial Design HCI/UX research project makes AI suggestions, evidence,
 professor corrections and approval decisions visible. It does not establish
 classification accuracy, usability gains, student attainment or accreditation.
 
+## Project opening page
+
+New visitors first see **Project overview**, an institutional project cover with
+the NIT Rourkela emblem and the heading **Course Outcomes & Assessment Studio**.
+It identifies the project author as **Gupta Prasad Adhikari**, roll number
+**123ID0885**, under the guidance of **Prof. B.B.V.L. Deepak**, supervisor,
+**Department of Industrial Design**, National Institute of Technology Rourkela.
+
+**Enter faculty workspace** opens course setup. The six module cards and the
+sidebar provide direct navigation; hover and keyboard-focus feedback do not
+change pages until an action is selected. Returning to the overview preserves
+course data and professor edits. **Load presentation demo** is also available
+from the cover, and restoring previous work returns to the page that was active
+before the demo was loaded.
+
+The unmodified emblem is bundled in `assets/` from the
+[official NIT Rourkela website](https://www.nitrkl.ac.in/assets/images/logo.png).
+The cover works without an external image request or AI call. Author and
+supervisor details belong to the project introduction and are not added to the
+student question-paper exports.
+
 ## Run locally
 
 Use a supported Python environment with the packages in `requirements.txt`:
@@ -238,6 +259,7 @@ wording. A complete manual workflow is possible without a live Gemini key.
 |---|---|
 | `app.py` | Six-section Streamlit faculty workspace |
 | `ui_workspace.py` | Course, outcome, matrix, analysis, blueprint, preview and review controls |
+| `ui_home.py`, `assets/` | Institutional project introduction, author/guide details and module launchers |
 | `project_state.py` | Serializable schema, stable IDs, source dependencies, safe JSON import/export |
 | `validation.py` | Marks, choice structures, identifiers and accepted-value validation |
 | `outcome_service.py` | Syllabus-grounded CO drafts and matrix suggestions |
